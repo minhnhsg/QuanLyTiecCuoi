@@ -169,7 +169,7 @@
             // 
             // btnChon
             // 
-            this.btnChon.Location = new System.Drawing.Point(16, 109);
+            this.btnChon.Location = new System.Drawing.Point(135, 109);
             this.btnChon.Name = "btnChon";
             this.btnChon.Size = new System.Drawing.Size(100, 30);
             this.btnChon.TabIndex = 2;
@@ -183,9 +183,9 @@
             this.lbGhiChu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbGhiChu.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbGhiChu.Location = new System.Drawing.Point(132, 62);
-            this.lbGhiChu.MinimumSize = new System.Drawing.Size(213, 77);
+            this.lbGhiChu.MinimumSize = new System.Drawing.Size(250, 77);
             this.lbGhiChu.Name = "lbGhiChu";
-            this.lbGhiChu.Size = new System.Drawing.Size(213, 77);
+            this.lbGhiChu.Size = new System.Drawing.Size(250, 77);
             this.lbGhiChu.TabIndex = 1;
             this.lbGhiChu.Text = "Ghi chú";
             // 
@@ -195,9 +195,9 @@
             this.lbDonGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDonGia.ForeColor = System.Drawing.Color.Red;
             this.lbDonGia.Location = new System.Drawing.Point(132, 45);
-            this.lbDonGia.MinimumSize = new System.Drawing.Size(213, 0);
+            this.lbDonGia.MinimumSize = new System.Drawing.Size(250, 0);
             this.lbDonGia.Name = "lbDonGia";
-            this.lbDonGia.Size = new System.Drawing.Size(213, 17);
+            this.lbDonGia.Size = new System.Drawing.Size(250, 17);
             this.lbDonGia.TabIndex = 1;
             this.lbDonGia.Text = "Đơn giá";
             // 
@@ -206,9 +206,9 @@
             this.lbTenMonAn.AutoSize = true;
             this.lbTenMonAn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTenMonAn.Location = new System.Drawing.Point(131, 24);
-            this.lbTenMonAn.MinimumSize = new System.Drawing.Size(213, 0);
+            this.lbTenMonAn.MinimumSize = new System.Drawing.Size(250, 0);
             this.lbTenMonAn.Name = "lbTenMonAn";
-            this.lbTenMonAn.Size = new System.Drawing.Size(213, 22);
+            this.lbTenMonAn.Size = new System.Drawing.Size(250, 22);
             this.lbTenMonAn.TabIndex = 1;
             this.lbTenMonAn.Text = "Tên món ăn";
             // 

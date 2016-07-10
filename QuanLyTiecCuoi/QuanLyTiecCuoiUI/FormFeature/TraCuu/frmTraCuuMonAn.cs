@@ -48,8 +48,7 @@ namespace QuanLyTiecCuoiUI
             else
             {
                 traCuu.key = txtTuKhoa.Text;
-                dgvKetQuaTimKiem.DataSource = BUS_TraCuu.TraCuuMonAn(traCuu);
-                
+                dgvKetQuaTimKiem.DataSource = BUS_TraCuu.TraCuuMonAn(traCuu);                
             }
         }
 
