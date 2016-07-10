@@ -59,14 +59,15 @@ namespace QuanLyTiecCuoiUI
 
             txtSoTienTra.Enabled = false;
             btnThanhToan.Enabled = false;
-            btnLapHoaDon.Enabled = false;
+            btnLayThongTin.Enabled = false;
+            btnXuatHoaDon.Enabled = false;
         }
 
         private void cbbTenChuRe_SelectedIndexChanged(object sender, EventArgs e)
         {
             Console.WriteLine("cbbTenchuRe");
-            if (!btnLapHoaDon.Enabled)
-                btnLapHoaDon.Enabled = true;
+            if (!btnLayThongTin.Enabled)
+                btnLayThongTin.Enabled = true;
             if (cbbTenChuRe.Items.Count > 0)
             {
                 mTenChuRe = cbbTenChuRe.Text;
@@ -76,8 +77,8 @@ namespace QuanLyTiecCuoiUI
         private void cbbTenCoDau_SelectedIndexChanged(object sender, EventArgs e)
         {
             Console.WriteLine("cbbTenCoDauChange");
-            if (!btnLapHoaDon.Enabled)
-                btnLapHoaDon.Enabled = true;
+            if (!btnLayThongTin.Enabled)
+                btnLayThongTin.Enabled = true;
             if (cbbTenCoDau.Items.Count > 0)
             {
                 mTenCoDau = cbbTenCoDau.Text;
@@ -86,6 +87,12 @@ namespace QuanLyTiecCuoiUI
 
         private void btnLapHoaDon_Click(object sender, EventArgs e)
         {
+
+            if (currentDate.Month == dtpNgayDaiTiec.Value.Month && currentDate.Day < dtpNgayDaiTiec.Value.Day)
+            {
+                MessageBox.Show("Tiệc cưới này chưa được tổ chức nên bạn không thể lập hóa đơn thanh toán. ", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
 
             if (String.IsNullOrWhiteSpace(mTenChuRe.Trim()) && String.IsNullOrWhiteSpace(mTenCoDau.Trim()))
             {
@@ -111,11 +118,7 @@ namespace QuanLyTiecCuoiUI
                     DataTable dataTableChiTietDichVu = BUS.BUS_LapHoaDonThanhToan.GetChiTietDichVu(tiecCuoiInfo.MaTiecCuoi);
                     dgvCacDichVu.DataSource = dataTableChiTietDichVu;
 
-                    //dgvCacDichVu.Columns["DonGia"].DefaultCellStyle.Format = "c";
-                    //dgvCacDichVu.Columns["ThanhTien"].DefaultCellStyle.Format = "c";
-
-
-
+                   
                     bool isLapHoaDon = BUS.BUS_LapHoaDonThanhToan.IsLapHoaDonThanhToan(tiecCuoiInfo.MaTiecCuoi);
 
                     if (isLapHoaDon)
@@ -192,20 +195,11 @@ namespace QuanLyTiecCuoiUI
                         lblSoNgayTre.Text = soNgayTre.ToString();
                         lblResult.Text = "";
 
-                        //chiTietPhieuDatBanDataTable = BUS.BUS_LapHoaDonThanhToan.GetChiTietDatBan(phieuDatBan.MaPhieuDatBan);
-                        //if (chiTietPhieuDatBanDataTable.Rows.Count > 0)
-                        //{
-                        //    if (chiTietPhieuDatBanDataTable != null)
-                        //    {
-                        //        foreach (DataRow row in chiTietPhieuDatBanDataTable.Rows)
-                        //        {
-                        //            foreach (DataColumn column in chiTietPhieuDatBanDataTable.Columns)
-                        //            {
-                        //                Console.WriteLine(row[column].ToString());
-                        //            }
-                        //        }
-                        //    }
-                        //}
+                        DataTable chiTietPhieuDatBan = BUS.BUS_LapHoaDonThanhToan.GetChiTietDatBan(phieuDatBan.MaPhieuDatBan);
+                        dgvMonAn.DataSource = chiTietPhieuDatBan;
+                        dgvMonAn.Columns["TenMonAn"].HeaderText = "Tên món ăn";
+                        dgvMonAn.Columns["DonGia"].HeaderText = "Đơn giá (VND)";
+                        dgvMonAn.Columns["SoLuong"].HeaderText = "Số lượng";
                     }
                 }
 
@@ -225,7 +219,7 @@ namespace QuanLyTiecCuoiUI
 
                 txtSoTienTra.Enabled = true;
                 btnThanhToan.Enabled = true;
-                btnLapHoaDon.Enabled = false;
+                btnLayThongTin.Enabled = false;
                 cbbTenCoDau.Enabled = false;
                 cbbTenChuRe.Enabled = false;
                 dtpNgayDaiTiec.Enabled = false;
@@ -278,7 +272,6 @@ namespace QuanLyTiecCuoiUI
             decimal soTienTra = 0;
             if (String.IsNullOrWhiteSpace(soTienTraStr))
             {
-
                 MessageBox.Show("Số tiền trả không được để trống", "Thông báo lỗi", MessageBoxButtons.OK);
                 return;
             }
@@ -360,13 +353,14 @@ namespace QuanLyTiecCuoiUI
                     cbbTenChuRe.Enabled = true;
                     cbbTenCoDau.Enabled = true;
                     dtpNgayDaiTiec.Enabled = true;
-                    btnLapHoaDon.Enabled = true;
+                    btnLayThongTin.Enabled = true;
 
                     btnThanhToan.Enabled = false;
                     txtSoTienTra.ReadOnly = true;
+                    btnXuatHoaDon.Enabled = true;
                 }
                 else
-                    MessageBox.Show("Thanh thất bại!", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Thanh toán thất bại!", "Thông báo", MessageBoxButtons.OK);
             }
         }
 
