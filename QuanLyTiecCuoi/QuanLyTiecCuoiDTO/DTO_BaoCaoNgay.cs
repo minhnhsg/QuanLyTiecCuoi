@@ -12,7 +12,7 @@ namespace DTO
         public int Ngay { get; set; }
         public int SoLuongTiecCuoi { get; set; }
         public decimal DoanhThu { get; set; }
-        public float TiLe { get; set; }
+        public decimal TiLe { get; set; }
 
         public DTO_BaoCaoNgay()
         {

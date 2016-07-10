@@ -327,7 +327,7 @@ namespace QuanLyTiecCuoiUI
                         DTO_BaoCaoNgay baoCaoNgay = BUS.BUS_BaoCaoNgay.GetBaoCaoNgay(maBCT, dtpNgayDaiTiec.Value.Day);
                         baoCaoNgay.SoLuongTiecCuoi++;
                         baoCaoNgay.DoanhThu += soTienDatCoc + soTienTra;
-                        baoCaoNgay.TiLe = 1;
+                        baoCaoNgay.TiLe = Math.Round(baoCaoNgay.DoanhThu / baoCaoNgay.SoLuongTiecCuoi);
                         Console.WriteLine("DaTonTaiBaoCaoNgay");
                         Console.WriteLine(BUS.BUS_BaoCaoNgay.UpdateBaoCaoNgay(baoCaoNgay));
                     }

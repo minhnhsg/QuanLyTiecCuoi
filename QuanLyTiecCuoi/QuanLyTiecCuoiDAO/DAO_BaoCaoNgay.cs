@@ -40,7 +40,7 @@ namespace DAO
                 baoCaoNgay.Ngay = ngay;
                 baoCaoNgay.SoLuongTiecCuoi = int.Parse(dataRow["SoLuongTiecCuoi"].ToString());
                 baoCaoNgay.DoanhThu = decimal.Parse(dataRow["DoanhThu"].ToString());
-                baoCaoNgay.TiLe = float.Parse(dataRow["TiLe"].ToString());
+                baoCaoNgay.TiLe = decimal.Parse(dataRow["TiLe"].ToString());
             }
             return baoCaoNgay;
         }
