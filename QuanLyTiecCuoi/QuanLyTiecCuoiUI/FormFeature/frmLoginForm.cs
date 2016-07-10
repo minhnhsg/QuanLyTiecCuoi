@@ -158,7 +158,8 @@ namespace QuanLyTiecCuoiUI
                 //login lưu trạng thái
                 Program.dangnhapform.Hide();
                 Program.manhinhchinh.SetRolesForUser(nhanviendangnhap, MaPhanQuyenNhanVien);
-                Program.manhinhchinh.Show();
+                //Program.manhinhchinh.Show();
+                Program.manhinhchinh.ShowDialog();
             }
             else
             {

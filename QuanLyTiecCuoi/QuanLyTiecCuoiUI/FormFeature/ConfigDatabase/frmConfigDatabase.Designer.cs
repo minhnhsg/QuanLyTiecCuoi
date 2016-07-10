@@ -38,17 +38,19 @@
             // lblServerName
             // 
             this.lblServerName.AutoSize = true;
-            this.lblServerName.Location = new System.Drawing.Point(21, 30);
+            this.lblServerName.Location = new System.Drawing.Point(22, 13);
+            this.lblServerName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblServerName.Name = "lblServerName";
-            this.lblServerName.Size = new System.Drawing.Size(75, 13);
+            this.lblServerName.Size = new System.Drawing.Size(99, 17);
             this.lblServerName.TabIndex = 0;
             this.lblServerName.Text = "Server Name: ";
             // 
             // Connect
             // 
-            this.Connect.Location = new System.Drawing.Point(254, 101);
+            this.Connect.Location = new System.Drawing.Point(146, 72);
+            this.Connect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Connect.Name = "Connect";
-            this.Connect.Size = new System.Drawing.Size(75, 23);
+            this.Connect.Size = new System.Drawing.Size(100, 28);
             this.Connect.TabIndex = 1;
             this.Connect.Text = "Connect";
             this.Connect.UseVisualStyleBackColor = true;
@@ -56,40 +58,48 @@
             // 
             // txtDataSouce
             // 
-            this.txtDataSouce.Location = new System.Drawing.Point(142, 27);
+            this.txtDataSouce.Location = new System.Drawing.Point(129, 10);
+            this.txtDataSouce.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDataSouce.Name = "txtDataSouce";
-            this.txtDataSouce.Size = new System.Drawing.Size(355, 20);
+            this.txtDataSouce.Size = new System.Drawing.Size(242, 23);
             this.txtDataSouce.TabIndex = 2;
             this.txtDataSouce.Text = "(local)";
             // 
             // lbDatabaseName
             // 
             this.lbDatabaseName.AutoSize = true;
-            this.lbDatabaseName.Location = new System.Drawing.Point(24, 74);
+            this.lbDatabaseName.Location = new System.Drawing.Point(7, 44);
+            this.lbDatabaseName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDatabaseName.Name = "lbDatabaseName";
-            this.lbDatabaseName.Size = new System.Drawing.Size(87, 13);
+            this.lbDatabaseName.Size = new System.Drawing.Size(114, 17);
             this.lbDatabaseName.TabIndex = 3;
             this.lbDatabaseName.Text = "Database Name:";
             // 
             // txtDatabaseName
             // 
-            this.txtDatabaseName.Location = new System.Drawing.Point(142, 66);
+            this.txtDatabaseName.Location = new System.Drawing.Point(129, 41);
+            this.txtDatabaseName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDatabaseName.Name = "txtDatabaseName";
-            this.txtDatabaseName.Size = new System.Drawing.Size(355, 20);
+            this.txtDatabaseName.Size = new System.Drawing.Size(242, 23);
             this.txtDatabaseName.TabIndex = 4;
             this.txtDatabaseName.Text = "QuanLyTiecCuoi";
             // 
             // frmConfigDatabase
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 164);
+            this.ClientSize = new System.Drawing.Size(384, 116);
             this.Controls.Add(this.txtDatabaseName);
             this.Controls.Add(this.lbDatabaseName);
             this.Controls.Add(this.txtDataSouce);
             this.Controls.Add(this.Connect);
             this.Controls.Add(this.lblServerName);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmConfigDatabase";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Config Database";
             this.ResumeLayout(false);
             this.PerformLayout();

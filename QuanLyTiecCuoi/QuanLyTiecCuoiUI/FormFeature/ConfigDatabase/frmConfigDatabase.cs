@@ -32,9 +32,10 @@ namespace QuanLyTiecCuoiUI.FormFeature.ConfigDatabase
             if (openSucess)
             {
                 DatabaseHelper.CloseConnection();
-                //Check lại fần này
-                //frmManHinhChinh frmMain = new frmManHinhChinh();
-                //frmMain.ShowDialog();
+                
+                Program.manhinhchinh = new frmMain();
+                Program.dangnhapform = new frmLoginForm();
+                Program.dangnhapform.ShowDialog();
                 this.Close();
             }
             else
@@ -47,6 +48,5 @@ namespace QuanLyTiecCuoiUI.FormFeature.ConfigDatabase
                 }
             }
         }
-
     }
 }

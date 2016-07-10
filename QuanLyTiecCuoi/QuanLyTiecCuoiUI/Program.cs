@@ -12,10 +12,9 @@ namespace QuanLyTiecCuoiUI
 {
     static class Program
     {
-        //public static frmManHinhChinh manhinhchinh;
         public static frmMain manhinhchinh;
         public static frmLoginForm dangnhapform;
-        static void KhoiTaoForm()
+        public static void KhoiTaoForm()
         {
             manhinhchinh = new frmMain();
             dangnhapform = new frmLoginForm();
@@ -36,6 +35,12 @@ namespace QuanLyTiecCuoiUI
             if (!openSuscess)
             {
                 Application.Run(new frmConfigDatabase());
+                //if (openSuscess)
+                //{
+                //    KhoiTaoForm();
+                //    Application.Run(dangnhapform);
+                //    //Console.WriteLine("aaaaaaaaa");
+                //}
             }
             else
             {

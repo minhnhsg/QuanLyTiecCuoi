@@ -614,7 +614,7 @@ namespace QuanLyTiecCuoiUI
             }
             catch (Exception ex)
             {
-                ovalAvatar.Image = Image.FromFile(@"DanhSachNhanVien\unknow.png");
+                ovalAvatar.Image = Image.FromFile(@"DanhSachNhanVien\Unknow.png");
             }
         }
 
@@ -646,7 +646,7 @@ namespace QuanLyTiecCuoiUI
             }
             catch (Exception ex)
             {
-                ptrAvatarNhanVien.Image = Image.FromFile(@"DanhSachNhanVien\unknow.png");
+                ptrAvatarNhanVien.Image = Image.FromFile(@"DanhSachNhanVien\Unknow.png");
             }
         }
         #endregion
