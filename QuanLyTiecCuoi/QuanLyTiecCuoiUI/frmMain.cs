@@ -139,12 +139,12 @@ namespace QuanLyTiecCuoiUI
                 if (valueRoles == 3)
             {
                 //quản lý csvc
-                RolesSize[1] = 37;
+                RolesSize[1] = 35;
                 RolesSize[3] = 18;
                 RolesSize[5] = 0;
                 RolesSize[7] = 0;
 
-                SpaceSice[1] = 23;
+                SpaceSice[1] = 25;
                 SpaceSice[3] = 42;
                 SpaceSice[5] = 60;
                 SpaceSice[7] = 60;
