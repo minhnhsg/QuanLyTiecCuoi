@@ -107,7 +107,6 @@ namespace BUS
 
             danhSachMonAn = DAO_QuanLyTiecCuoi.GetTableMonAnDonGiaDGTT(maTiecCuoi);
         }
-
         public static object GetDataPhieuDichVu(string maTiecCuoi)
         {
             return DAO_QuanLyTiecCuoi.GetTablePhieuDichVu(maTiecCuoi);

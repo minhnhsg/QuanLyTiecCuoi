@@ -20,7 +20,6 @@ namespace QuanLyTiecCuoiUI
         private Size EXTEND_SIZE = new Size(1081, 586);
         private const string MONAN_FOLDER_NAME = "DanhSachMonAn";
         private const string DICHVU_FOLDER_NAME = "DanhSachDichVu";
-        private bool loading = true;
         private bool mPanelBanAnIsOpen = false;
         private bool mPanelDichVuIsOpen = false;
         private bool mPhieuBanAnIsEdited = false;
@@ -29,8 +28,9 @@ namespace QuanLyTiecCuoiUI
         private int mRowClickedDichVu = 0;
         private string mMaMonAn = "";
         private string mMaDichVu = "";
-        private decimal mDonGiaBan = 0;
         private const decimal PHANTRAM_TIENCOC = 0.3M;
+        private int mThemOrSuaMonAn = 0; // Them=1, Sua=2
+        private int mThemOrSuaDichVu = 0; // Them=1, Sua=2
 
         public frmQuanLyTiecCuoi()
         {
@@ -88,8 +88,6 @@ namespace QuanLyTiecCuoiUI
             //cboDanhSachDichVu.DataSource = BUS_QuanLyTiecCuoi._ListTenDichVu;
             //cboDanhSachMonAn.SelectedItem = cboDanhSachDichVu.SelectedItem = 
             cboCa.SelectedItem = cboSanh.SelectedItem = null;
-
-            loading = false;
         }
 
         private void linkSuaPhieuBanAn_Click(object sender, EventArgs e)
@@ -605,19 +603,42 @@ namespace QuanLyTiecCuoiUI
                 return;
             }
 
-            int index = BUS_QuanLyTiecCuoi._ListMaMonAn.IndexOf(mMaMonAn);
             foreach (DataGridViewRow r in dgvDanhSachMonAn.Rows)
             {
                 //if (r.Cells["MaMonAn"].Value.ToString() == BUS_QuanLyTiecCuoi._ListMaMonAn[cboDanhSachMonAn.SelectedIndex])
-                if (r.Cells["MaMonAn"].Value.ToString() == BUS_QuanLyTiecCuoi._ListMaMonAn[index])
+                if (r.Cells["MaMonAn"].Value.ToString() == mMaMonAn)
+                {
+                    // Neu mon an co roi thi update
+                    string message = "";
+                    if (mThemOrSuaMonAn == 1)
+                        message = "Món này đã có trong phiếu. Bạn có muốn cập nhật lại đơn giá không?";
+                    else if (mThemOrSuaMonAn == 2)
+                        message = "Bạn có muốn lưu lại đơn giá không?";
+
+                    DialogResult dr = MessageBox.Show(message, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr == DialogResult.Yes)
+                    {
+                        DataTable dtt = (DataTable)dgvDanhSachMonAn.DataSource;
+                        foreach(DataRow roww in dtt.Rows)
+                        {
+                            if (roww["MaMonAn"].ToString() == mMaMonAn)
+                            {
+                                roww["DonGiaTT"] = txtDonGiaDatMonAn.Text;
+                            }
+                        }
+                        dgvDanhSachMonAn.DataSource = dtt;
+                        txtDonGiaDatMonAn.Text = "";
+                    }
+
                     return;
+                }
             }
 
             DataTable dt = (DataTable)dgvDanhSachMonAn.DataSource;
             DataRow row = dt.NewRow();
             //row["MaMonAn"] = BUS_QuanLyTiecCuoi._ListMaMonAn[cboDanhSachMonAn.SelectedIndex];
             //row["TenMonAn"] = cboDanhSachMonAn.Text;
-            row["MaMonAn"] = BUS_QuanLyTiecCuoi._ListMaMonAn[index];
+            row["MaMonAn"] = mMaMonAn;
             row["TenMonAn"] = lblTenMonAn.Text;
             row["DonGiaTT"] = txtDonGiaDatMonAn.Text;
             dt.Rows.Add(row);
@@ -670,22 +691,6 @@ namespace QuanLyTiecCuoiUI
             e.Handled = !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar);
         }
 
-        private void linkChonDichVu_Click(object sender, EventArgs e)
-        {
-            // Load new form
-            frmTraCuuDichVu formTCDV = new frmTraCuuDichVu();
-            formTCDV.ShowDialog();
-
-            if (formTCDV.mTenDichVuSelected != "-")
-            {
-                // Lay ve MaMonAn
-                mMaDichVu = formTCDV.mMaDichVuSelected;
-
-                // Load ten mon an vao label
-                lblTenDichVu.Text = formTCDV.mTenDichVuSelected;
-            }
-        }
-
         private void lblTenDichVu_TextChanged(object sender, EventArgs e)
         {
             if (lblTenDichVu.Text != "-")
@@ -720,7 +725,32 @@ namespace QuanLyTiecCuoiUI
                 //if (r.Cells["MaMonAn"].Value.ToString() == BUS_QuanLyTiecCuoi._ListMaMonAn[cboDanhSachMonAn.SelectedIndex])
                 //if (r.Cells["MaMonAn"].Value.ToString() == BUS_QuanLyTiecCuoi._ListMaMonAn[index])
                 if (r.Cells["MaDichVu"].Value.ToString() == mMaDichVu)
+                {
+                    // Neu dich vu co roi thi update
+                    string message = "";
+                    if (mThemOrSuaDichVu == 1)
+                        message = "Dịch vụ này đã có trong phiếu. Bạn có muốn cập nhật lại đơn giá, số lượng không?";
+                    else if (mThemOrSuaDichVu == 2)
+                        message = "Bạn có muốn lưu lại đơn giá, số lượng không?";
+
+                    DialogResult dr = MessageBox.Show(message, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr == DialogResult.Yes)
+                    {
+                        DataTable dtt = (DataTable)dgvDanhSachDichVu.DataSource;
+                        foreach (DataRow roww in dtt.Rows)
+                        {
+                            if (roww["MaDichVu"].ToString() == mMaDichVu)
+                            {
+                                roww["DonGiaTT"] = txtDonGiaDatDichVu.Text;
+                                roww["SoLuong"] = txtSoLuongDichVuDat.Text;
+                            }
+                        }
+                        dgvDanhSachDichVu.DataSource = dtt;
+                        txtDonGiaDatDichVu.Text = "";
+                    }
+
                     return;
+                }
             }
 
             DataTable dt = (DataTable)dgvDanhSachDichVu.DataSource;
@@ -777,6 +807,8 @@ namespace QuanLyTiecCuoiUI
 
         private void btnChonMon_Click(object sender, EventArgs e)
         {
+            mThemOrSuaMonAn = 1;
+
             // Load new form
             frmTraCuuMonAn formTCMA = new frmTraCuuMonAn();
             formTCMA.ShowDialog();
@@ -788,7 +820,83 @@ namespace QuanLyTiecCuoiUI
 
                 // Load ten mon an vao label
                 lblTenMonAn.Text = formTCMA.mTenMonAnSelected;
+
+                // Load don gia mac dinh
+                txtDonGiaDatMonAn.Text = BUS_QuanLyTiecCuoi._ListDonGiaMonAn[BUS_QuanLyTiecCuoi._ListTenMonAn.IndexOf(lblTenMonAn.Text)];
+                txtDonGiaDatMonAn.Focus();
+                txtDonGiaDatMonAn.SelectAll();
             }
+        }
+
+        private void dgvDanhSachMonAn_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            mThemOrSuaMonAn = 2;
+
+            // Hien thi mon an len de chinh sua
+            mMaMonAn = dgvDanhSachMonAn.CurrentRow.Cells["MaMonAn"].Value.ToString();
+            lblTenMonAn.Text = BUS_QuanLyTiecCuoi._ListTenMonAn[BUS_QuanLyTiecCuoi._ListMaMonAn.IndexOf(mMaMonAn)];
+            txtDonGiaDatMonAn.Text = dgvDanhSachMonAn.CurrentRow.Cells["DonGiaTT"].Value.ToString();
+            txtDonGiaDatMonAn.Focus();
+            dgvDanhSachMonAn.ClearSelection();
+        }
+
+        private void dgvDanhSachMonAn_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvDanhSachMonAn.ClearSelection();
+        }
+
+        private void btnChonDichVu_Click(object sender, EventArgs e)
+        {
+            mThemOrSuaDichVu = 1;
+
+            // Load new form
+            frmTraCuuDichVu formTCDV = new frmTraCuuDichVu();
+            formTCDV.ShowDialog();
+
+            if (formTCDV.mTenDichVuSelected != "-")
+            {
+                // Lay ve MaMonAn
+                mMaDichVu = formTCDV.mMaDichVuSelected;
+
+                // Load ten mon an vao label
+                lblTenDichVu.Text = formTCDV.mTenDichVuSelected;
+
+                // Load don gia mac dinh
+                txtDonGiaDatDichVu.Text = BUS_QuanLyTiecCuoi._ListDonGiaDichVu[BUS_QuanLyTiecCuoi._ListTenDichVu.IndexOf(lblTenDichVu.Text)];
+                txtDonGiaDatDichVu.Focus();
+                txtDonGiaDatDichVu.SelectAll();
+            }
+        }
+
+        private void dgvDanhSachDichVu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            mThemOrSuaDichVu = 2;
+
+            // Hien thi dich vu len de chinh sua
+            mMaDichVu = dgvDanhSachDichVu.CurrentRow.Cells["MaDichVu"].Value.ToString();
+            lblTenDichVu.Text = BUS_QuanLyTiecCuoi._ListTenDichVu[BUS_QuanLyTiecCuoi._ListMaDichVu.IndexOf(mMaDichVu)];
+            txtDonGiaDatDichVu.Text = dgvDanhSachDichVu.CurrentRow.Cells["DonGiaTT"].Value.ToString();
+            txtSoLuongDichVuDat.Text = dgvDanhSachDichVu.CurrentRow.Cells["SoLuong"].Value.ToString();
+            txtDonGiaDatDichVu.Focus();
+            dgvDanhSachDichVu.ClearSelection();
+        }
+
+        private void dgvDanhSachDichVu_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvDanhSachDichVu.ClearSelection();
+        }
+
+        private void txtDonGiaDatMonAn_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDonGiaDatMonAn.Text == "0")
+            {
+                txtDonGiaDatMonAn.Text = "";
+            }
+        }
+
+        private void txtDonGiaDatMonAn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar);
         }
     }
 }

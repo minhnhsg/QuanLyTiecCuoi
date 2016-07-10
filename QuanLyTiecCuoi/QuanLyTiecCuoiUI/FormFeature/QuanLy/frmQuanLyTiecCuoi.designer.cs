@@ -103,7 +103,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvDanhSachDichVu = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.linkChonDichVu = new System.Windows.Forms.LinkLabel();
             this.lblTenDichVu = new System.Windows.Forms.Label();
             this.txtDonGiaDatDichVu = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -112,10 +111,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblDonGiaDichVuMacDinh = new System.Windows.Forms.Label();
             this.ptrDichVu = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.myContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ctmItemXoa = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnChonDichVu = new System.Windows.Forms.Button();
             this.pnlPhieuBanAn.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachMonAn)).BeginInit();
@@ -196,6 +195,8 @@
             this.dgvDanhSachMonAn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDanhSachMonAn.Size = new System.Drawing.Size(274, 178);
             this.dgvDanhSachMonAn.TabIndex = 0;
+            this.dgvDanhSachMonAn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachMonAn_CellClick);
+            this.dgvDanhSachMonAn.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvDanhSachMonAn_DataBindingComplete);
             this.dgvDanhSachMonAn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvDanhSachMonAn_MouseClick);
             // 
             // grpThongTinMonAn
@@ -251,6 +252,8 @@
             this.txtDonGiaDatMonAn.Name = "txtDonGiaDatMonAn";
             this.txtDonGiaDatMonAn.Size = new System.Drawing.Size(158, 23);
             this.txtDonGiaDatMonAn.TabIndex = 18;
+            this.txtDonGiaDatMonAn.TextChanged += new System.EventHandler(this.txtDonGiaDatMonAn_TextChanged);
+            this.txtDonGiaDatMonAn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGiaDatMonAn_KeyPress);
             // 
             // label6
             // 
@@ -874,7 +877,7 @@
             // 
             // btnHuyPhieuDichVu
             // 
-            this.btnHuyPhieuDichVu.Location = new System.Drawing.Point(119, 505);
+            this.btnHuyPhieuDichVu.Location = new System.Drawing.Point(157, 507);
             this.btnHuyPhieuDichVu.Name = "btnHuyPhieuDichVu";
             this.btnHuyPhieuDichVu.Size = new System.Drawing.Size(100, 30);
             this.btnHuyPhieuDichVu.TabIndex = 27;
@@ -884,7 +887,7 @@
             // 
             // btnLuuPhieuDichVu
             // 
-            this.btnLuuPhieuDichVu.Location = new System.Drawing.Point(12, 505);
+            this.btnLuuPhieuDichVu.Location = new System.Drawing.Point(50, 507);
             this.btnLuuPhieuDichVu.Name = "btnLuuPhieuDichVu";
             this.btnLuuPhieuDichVu.Size = new System.Drawing.Size(100, 30);
             this.btnLuuPhieuDichVu.TabIndex = 26;
@@ -897,7 +900,7 @@
             this.groupBox1.Controls.Add(this.dgvDanhSachDichVu);
             this.groupBox1.Location = new System.Drawing.Point(12, 273);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(280, 226);
+            this.groupBox1.Size = new System.Drawing.Size(280, 228);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách dịch vụ cần đặt";
@@ -916,13 +919,15 @@
             this.dgvDanhSachDichVu.ReadOnly = true;
             this.dgvDanhSachDichVu.RowHeadersVisible = false;
             this.dgvDanhSachDichVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDanhSachDichVu.Size = new System.Drawing.Size(274, 204);
+            this.dgvDanhSachDichVu.Size = new System.Drawing.Size(274, 206);
             this.dgvDanhSachDichVu.TabIndex = 0;
+            this.dgvDanhSachDichVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachDichVu_CellClick);
+            this.dgvDanhSachDichVu.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvDanhSachDichVu_DataBindingComplete);
             this.dgvDanhSachDichVu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvDanhSachDichVu_MouseClick);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.linkChonDichVu);
+            this.groupBox2.Controls.Add(this.btnChonDichVu);
             this.groupBox2.Controls.Add(this.lblTenDichVu);
             this.groupBox2.Controls.Add(this.txtDonGiaDatDichVu);
             this.groupBox2.Controls.Add(this.label16);
@@ -931,7 +936,6 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.lblDonGiaDichVuMacDinh);
             this.groupBox2.Controls.Add(this.ptrDichVu);
-            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Location = new System.Drawing.Point(12, 43);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(280, 224);
@@ -939,21 +943,10 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Đặt thêm dịch vụ";
             // 
-            // linkChonDichVu
-            // 
-            this.linkChonDichVu.AutoSize = true;
-            this.linkChonDichVu.Location = new System.Drawing.Point(95, 21);
-            this.linkChonDichVu.Name = "linkChonDichVu";
-            this.linkChonDichVu.Size = new System.Drawing.Size(92, 17);
-            this.linkChonDichVu.TabIndex = 22;
-            this.linkChonDichVu.TabStop = true;
-            this.linkChonDichVu.Text = "Chọn Dịch vụ";
-            this.linkChonDichVu.Click += new System.EventHandler(this.linkChonDichVu_Click);
-            // 
             // lblTenDichVu
             // 
             this.lblTenDichVu.AutoSize = true;
-            this.lblTenDichVu.Location = new System.Drawing.Point(72, 42);
+            this.lblTenDichVu.Location = new System.Drawing.Point(116, 29);
             this.lblTenDichVu.Name = "lblTenDichVu";
             this.lblTenDichVu.Size = new System.Drawing.Size(13, 17);
             this.lblTenDichVu.TabIndex = 26;
@@ -962,9 +955,9 @@
             // 
             // txtDonGiaDatDichVu
             // 
-            this.txtDonGiaDatDichVu.Location = new System.Drawing.Point(112, 113);
+            this.txtDonGiaDatDichVu.Location = new System.Drawing.Point(116, 98);
             this.txtDonGiaDatDichVu.Name = "txtDonGiaDatDichVu";
-            this.txtDonGiaDatDichVu.Size = new System.Drawing.Size(162, 23);
+            this.txtDonGiaDatDichVu.Size = new System.Drawing.Size(156, 23);
             this.txtDonGiaDatDichVu.TabIndex = 23;
             this.txtDonGiaDatDichVu.TextChanged += new System.EventHandler(this.txtDonGiaDatDichVu_TextChanged);
             this.txtDonGiaDatDichVu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGiaDatDichVu_KeyPress);
@@ -972,7 +965,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(112, 93);
+            this.label16.Location = new System.Drawing.Point(116, 78);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(128, 17);
             this.label16.TabIndex = 24;
@@ -980,7 +973,8 @@
             // 
             // btnThemDichVu
             // 
-            this.btnThemDichVu.Location = new System.Drawing.Point(90, 189);
+            this.btnThemDichVu.ForeColor = System.Drawing.Color.Red;
+            this.btnThemDichVu.Location = new System.Drawing.Point(90, 182);
             this.btnThemDichVu.Name = "btnThemDichVu";
             this.btnThemDichVu.Size = new System.Drawing.Size(100, 30);
             this.btnThemDichVu.TabIndex = 25;
@@ -990,9 +984,9 @@
             // 
             // txtSoLuongDichVuDat
             // 
-            this.txtSoLuongDichVuDat.Location = new System.Drawing.Point(112, 161);
+            this.txtSoLuongDichVuDat.Location = new System.Drawing.Point(116, 146);
             this.txtSoLuongDichVuDat.Name = "txtSoLuongDichVuDat";
-            this.txtSoLuongDichVuDat.Size = new System.Drawing.Size(162, 23);
+            this.txtSoLuongDichVuDat.Size = new System.Drawing.Size(156, 23);
             this.txtSoLuongDichVuDat.TabIndex = 24;
             this.txtSoLuongDichVuDat.TextChanged += new System.EventHandler(this.txtSoLuongDichVuDat_TextChanged);
             this.txtSoLuongDichVuDat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuongDichVuDat_KeyPress);
@@ -1000,7 +994,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(112, 141);
+            this.label4.Location = new System.Drawing.Point(116, 126);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 17);
             this.label4.TabIndex = 5;
@@ -1010,8 +1004,8 @@
             // 
             this.lblDonGiaDichVuMacDinh.AutoSize = true;
             this.lblDonGiaDichVuMacDinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDonGiaDichVuMacDinh.ForeColor = System.Drawing.Color.Black;
-            this.lblDonGiaDichVuMacDinh.Location = new System.Drawing.Point(7, 67);
+            this.lblDonGiaDichVuMacDinh.ForeColor = System.Drawing.Color.Red;
+            this.lblDonGiaDichVuMacDinh.Location = new System.Drawing.Point(116, 52);
             this.lblDonGiaDichVuMacDinh.Name = "lblDonGiaDichVuMacDinh";
             this.lblDonGiaDichVuMacDinh.Size = new System.Drawing.Size(13, 16);
             this.lblDonGiaDichVuMacDinh.TabIndex = 4;
@@ -1020,21 +1014,12 @@
             // ptrDichVu
             // 
             this.ptrDichVu.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ptrDichVu.Location = new System.Drawing.Point(10, 88);
+            this.ptrDichVu.Location = new System.Drawing.Point(10, 69);
             this.ptrDichVu.Name = "ptrDichVu";
-            this.ptrDichVu.Size = new System.Drawing.Size(96, 96);
+            this.ptrDichVu.Size = new System.Drawing.Size(100, 100);
             this.ptrDichVu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptrDichVu.TabIndex = 2;
             this.ptrDichVu.TabStop = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 42);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 17);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Dịch vụ:";
             // 
             // label10
             // 
@@ -1063,13 +1048,23 @@
             this.ctmItemXoa.Size = new System.Drawing.Size(94, 22);
             this.ctmItemXoa.Text = "Xóa";
             // 
+            // btnChonDichVu
+            // 
+            this.btnChonDichVu.Location = new System.Drawing.Point(10, 30);
+            this.btnChonDichVu.Name = "btnChonDichVu";
+            this.btnChonDichVu.Size = new System.Drawing.Size(100, 30);
+            this.btnChonDichVu.TabIndex = 27;
+            this.btnChonDichVu.Text = "Chọn d.vụ...";
+            this.btnChonDichVu.UseVisualStyleBackColor = true;
+            this.btnChonDichVu.Click += new System.EventHandler(this.btnChonDichVu_Click);
+            // 
             // frmQuanLyTiecCuoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 547);
-            this.Controls.Add(this.pnlPhieuBanAn);
             this.Controls.Add(this.pnlPhieuDichVu);
+            this.Controls.Add(this.pnlPhieuBanAn);
             this.Controls.Add(this.pnlLeft);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -1180,7 +1175,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblDonGiaDichVuMacDinh;
         private System.Windows.Forms.PictureBox ptrDichVu;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label11;
@@ -1196,8 +1190,8 @@
         private System.Windows.Forms.ContextMenuStrip myContextMenu;
         private System.Windows.Forms.ToolStripMenuItem ctmItemXoa;
         private System.Windows.Forms.Label lblTenMonAn;
-        private System.Windows.Forms.LinkLabel linkChonDichVu;
         private System.Windows.Forms.Label lblTenDichVu;
         private System.Windows.Forms.Button btnChonMon;
+        private System.Windows.Forms.Button btnChonDichVu;
     }
 }
