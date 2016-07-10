@@ -103,6 +103,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvDanhSachDichVu = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnChonDichVu = new System.Windows.Forms.Button();
             this.lblTenDichVu = new System.Windows.Forms.Label();
             this.txtDonGiaDatDichVu = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -114,7 +115,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.myContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ctmItemXoa = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnChonDichVu = new System.Windows.Forms.Button();
             this.pnlPhieuBanAn.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachMonAn)).BeginInit();
@@ -253,6 +253,7 @@
             this.txtDonGiaDatMonAn.Size = new System.Drawing.Size(158, 23);
             this.txtDonGiaDatMonAn.TabIndex = 18;
             this.txtDonGiaDatMonAn.TextChanged += new System.EventHandler(this.txtDonGiaDatMonAn_TextChanged);
+            this.txtDonGiaDatMonAn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDonGiaDatMonAn_KeyDown);
             this.txtDonGiaDatMonAn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGiaDatMonAn_KeyPress);
             // 
             // label6
@@ -943,6 +944,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Đặt thêm dịch vụ";
             // 
+            // btnChonDichVu
+            // 
+            this.btnChonDichVu.Location = new System.Drawing.Point(10, 30);
+            this.btnChonDichVu.Name = "btnChonDichVu";
+            this.btnChonDichVu.Size = new System.Drawing.Size(100, 30);
+            this.btnChonDichVu.TabIndex = 27;
+            this.btnChonDichVu.Text = "Chọn d.vụ...";
+            this.btnChonDichVu.UseVisualStyleBackColor = true;
+            this.btnChonDichVu.Click += new System.EventHandler(this.btnChonDichVu_Click);
+            // 
             // lblTenDichVu
             // 
             this.lblTenDichVu.AutoSize = true;
@@ -1047,16 +1058,6 @@
             this.ctmItemXoa.Name = "ctmItemXoa";
             this.ctmItemXoa.Size = new System.Drawing.Size(94, 22);
             this.ctmItemXoa.Text = "Xóa";
-            // 
-            // btnChonDichVu
-            // 
-            this.btnChonDichVu.Location = new System.Drawing.Point(10, 30);
-            this.btnChonDichVu.Name = "btnChonDichVu";
-            this.btnChonDichVu.Size = new System.Drawing.Size(100, 30);
-            this.btnChonDichVu.TabIndex = 27;
-            this.btnChonDichVu.Text = "Chọn d.vụ...";
-            this.btnChonDichVu.UseVisualStyleBackColor = true;
-            this.btnChonDichVu.Click += new System.EventHandler(this.btnChonDichVu_Click);
             // 
             // frmQuanLyTiecCuoi
             // 

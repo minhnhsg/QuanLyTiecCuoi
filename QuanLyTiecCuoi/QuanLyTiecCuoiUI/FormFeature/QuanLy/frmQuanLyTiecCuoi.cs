@@ -297,7 +297,7 @@ namespace QuanLyTiecCuoiUI
             decimal tienDatCocMin = PHANTRAM_TIENCOC * (SumDonGiaBanTT() + SumDonGiaDichVuTT());
             if (decimal.Parse(txtTienDatCoc.Text) < tienDatCocMin)
             {
-                MessageBox.Show("Tiền đặt ít nhất phải là " + tienDatCocMin + " VND ("+PHANTRAM_TIENCOC*100+"% tổng tiền của phiếu đặt bàn và phiếu dịch vụ)."
+                MessageBox.Show("Tiền đặt ít nhất phải là " + tienDatCocMin + " VND ("+PHANTRAM_TIENCOC*100+"% tổng tiền của phiếu đặt bàn và phiếu đặt dịch vụ)."
                     , "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTienDatCoc.Focus();
                 return;
@@ -492,7 +492,7 @@ namespace QuanLyTiecCuoiUI
             // Kiem tra dieu kien: khong co
 
             // Hoi co muon luu phieu dich vu ko
-            DialogResult dr = MessageBox.Show("Bạn có muốn lưu phiếu dịch vụ không?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("Bạn có muốn lưu phiếu đặt dịch vụ không?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 // Neu co thi, Dong panel lai, bat co` mPhieuDichVuIsEdited
@@ -596,13 +596,21 @@ namespace QuanLyTiecCuoiUI
             //if (cboDanhSachMonAn.SelectedIndex == -1) return;
             if (lblTenMonAn.Text == "-") return;
 
+            // Kiem tra nhap nhap day du chua
             if (txtDonGiaDatMonAn.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập 'Đơn giá thực tế' cho món.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDonGiaDatMonAn.Focus();
                 return;
             }
+            if (int.Parse(txtDonGiaDatMonAn.Text) < int.Parse(BUS_QuanLyTiecCuoi._ListDonGiaMonAn[BUS_QuanLyTiecCuoi._ListMaMonAn.IndexOf(mMaMonAn)]))
+            {
+                MessageBox.Show("Đơn giá món ăn phải lớn hơn/bằng đơn giá mặc định (" + lblDonGiaMonAnMacDinh.Text + "). Vui lòng sửa lại.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDonGiaDatMonAn.Focus();
+                return;
+            }
 
+            // Kiem tra mon an co trong dgv khong
             foreach (DataGridViewRow r in dgvDanhSachMonAn.Rows)
             {
                 //if (r.Cells["MaMonAn"].Value.ToString() == BUS_QuanLyTiecCuoi._ListMaMonAn[cboDanhSachMonAn.SelectedIndex])
@@ -627,13 +635,22 @@ namespace QuanLyTiecCuoiUI
                             }
                         }
                         dgvDanhSachMonAn.DataSource = dtt;
+
                         txtDonGiaDatMonAn.Text = "";
+                        lblTenMonAn.Text = lblDonGiaMonAnMacDinh.Text = "-";
+                        ptrMonAn.Image = null;
+                        MessageBox.Show("Lưu thành công!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                     return;
                 }
             }
 
+            DialogResult drr = MessageBox.Show("Bạn có muốn thêm món ăn này không?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (drr == DialogResult.No)
+                return;
+
+            // Neu khong co trong dgc thi insert thang vao
             DataTable dt = (DataTable)dgvDanhSachMonAn.DataSource;
             DataRow row = dt.NewRow();
             //row["MaMonAn"] = BUS_QuanLyTiecCuoi._ListMaMonAn[cboDanhSachMonAn.SelectedIndex];
@@ -645,6 +662,9 @@ namespace QuanLyTiecCuoiUI
             dgvDanhSachMonAn.DataSource = dt;
 
             txtDonGiaDatMonAn.Text = "";
+            lblTenMonAn.Text = lblDonGiaMonAnMacDinh.Text = "-";
+            ptrMonAn.Image = null;
+            MessageBox.Show("Thêm thành công!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }       
 
         private void txtSoLuongBan_TextChanged(object sender, EventArgs e)
@@ -718,6 +738,18 @@ namespace QuanLyTiecCuoiUI
                 txtSoLuongDichVuDat.Focus();
                 return;
             }
+            if (int.Parse(txtDonGiaDatDichVu.Text) < int.Parse(BUS_QuanLyTiecCuoi._ListDonGiaDichVu[BUS_QuanLyTiecCuoi._ListMaDichVu.IndexOf(mMaDichVu)]))
+            {
+                MessageBox.Show("Đơn giá dịch vụ phải lớn hơn/bằng đơn giá mặc định (" + lblDonGiaDichVuMacDinh.Text + ").", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDonGiaDatDichVu.Focus();
+                return;
+            }
+            //if (int.Parse(txtSoLuongDichVuDat.Text) < 1)
+            //{
+            //    MessageBox.Show("Số lượng dịch vụ ít nhất là 1. Vui lòng sửa lại.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    txtSoLuongDichVuDat.Focus();
+            //    return;
+            //}
 
             //int index = BUS_QuanLyTiecCuoi._ListMaDichVu.IndexOf(mMaDichVu);
             foreach (DataGridViewRow r in dgvDanhSachDichVu.Rows)
@@ -746,12 +778,20 @@ namespace QuanLyTiecCuoiUI
                             }
                         }
                         dgvDanhSachDichVu.DataSource = dtt;
+
                         txtDonGiaDatDichVu.Text = txtSoLuongDichVuDat.Text = "";
+                        lblTenDichVu.Text = lblDonGiaDichVuMacDinh.Text = "-";
+                        ptrDichVu.Image = null;
+                        MessageBox.Show("Lưu thành công!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                     return;
                 }
             }
+
+            DialogResult drr = MessageBox.Show("Bạn có muốn thêm dịch vụ này không?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (drr == DialogResult.No)
+                return;
 
             DataTable dt = (DataTable)dgvDanhSachDichVu.DataSource;
             DataRow row = dt.NewRow();
@@ -765,6 +805,9 @@ namespace QuanLyTiecCuoiUI
             dgvDanhSachDichVu.DataSource = dt;
 
             txtDonGiaDatDichVu.Text = txtSoLuongDichVuDat.Text = "";
+            lblTenDichVu.Text = lblDonGiaDichVuMacDinh.Text = "-";
+            ptrDichVu.Image = null;
+            MessageBox.Show("Thêm thành công!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void dgvDanhSachDichVu_MouseClick(object sender, MouseEventArgs e)
@@ -897,6 +940,14 @@ namespace QuanLyTiecCuoiUI
         private void txtDonGiaDatMonAn_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar);
+        }
+
+        private void txtDonGiaDatMonAn_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnThemMonAn_Click(sender, e);
+            }
         }
     }
 }
