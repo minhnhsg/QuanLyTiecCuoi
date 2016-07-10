@@ -296,6 +296,7 @@ namespace QuanLyTiecCuoiUI
                 hoaDon.TongTienDichVu = tongTienDichVu;
                 hoaDon.TongTienHoaDon = tongTienHoaDon;
                 hoaDon.ConLai = tongTienTra - soTienTra;
+                
 
                 if (hoaDon.ConLai < 0)
                 {
@@ -308,6 +309,14 @@ namespace QuanLyTiecCuoiUI
                     tiecCuoiInfo.TinhTrangTiec = 1;
                 else //TODO Con No
                     tiecCuoiInfo.TinhTrangTiec = 2;
+
+                decimal soTienToiThieu = (decimal)( tongTienTra / 2);
+                if (soTienTra < soTienToiThieu)
+                {
+                    MessageBox.Show("Bạn phải trả lớn hơn hoặc bằng 50% giá trị tổng tiền thanh toán");
+                    return;
+                }
+
 
                 if (BUS.BUS_HoaDon.InsertHoaDon(hoaDon))
                 {
