@@ -108,7 +108,7 @@ namespace QuanLyTiecCuoiUI
             try
             {
                 dtDichVu = new DataTable();
-                dtDichVu = BUS_DichVuNhaHang.GetDataDichVu();
+                dtDichVu = BUS_DichVu.GetDataTableDichVu();
                 cboDanhSachDichVu.DataSource = dtDichVu;
                 cboDanhSachDichVu.DisplayMember = dtDichVu.Columns["TenDichVu"].ToString();
                 cboDanhSachDichVu.ValueMember = dtDichVu.Columns["MaDichVu"].ToString();

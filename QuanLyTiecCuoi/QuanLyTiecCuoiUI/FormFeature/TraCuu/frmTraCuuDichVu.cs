@@ -25,6 +25,14 @@ namespace QuanLyTiecCuoiUI
             ptrHinh.ImageLocation = @"DanhSachDichVu\Unknow.png";
         }
 
+        public frmTraCuuDichVu(bool flagBtnChon)
+        {
+            InitializeComponent();
+            tcTraCuuDichVu.SelectedTab = tabPage1;
+            ptrHinh.ImageLocation = @"DanhSachDichVu\Unknow.png";
+            btnChon.Visible = flagBtnChon;
+        }
+
         private void frmTraCuuDichVu_Load(object sender, EventArgs e)
         {
             dgvDanhSachDichVu.DataSource = BUS_DichVu.GetDataTableDichVu();

@@ -24,6 +24,13 @@ namespace QuanLyTiecCuoiUI
             tcTraCuuMonAn.SelectedTab = tabPage1;
             ptrHinh.ImageLocation = @"DanhSachMonAn\Unknow.png";
         }
+        public frmTraCuuMonAn(bool flagBtnChon)
+        {
+            InitializeComponent();
+            tcTraCuuMonAn.SelectedTab = tabPage1;
+            ptrHinh.ImageLocation = @"DanhSachMonAn\Unknow.png";
+            btnChon.Visible = flagBtnChon;
+        }
 
         private void frmTraCuuMonAn_Load(object sender, EventArgs e)
         {

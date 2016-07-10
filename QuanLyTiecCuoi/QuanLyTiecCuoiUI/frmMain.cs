@@ -484,7 +484,7 @@ namespace QuanLyTiecCuoiUI
         {
             if (!IsOpened("frmTraCuuMonAn"))
             {
-                frmTraCuuMonAn TraCuuMonAn = new frmTraCuuMonAn();
+                frmTraCuuMonAn TraCuuMonAn = new frmTraCuuMonAn(false);
                 TraCuuMonAn.MdiParent = this;
                 TraCuuMonAn.Name = "frmTraCuuMonAn";
                 TraCuuMonAn.Show();
@@ -495,7 +495,7 @@ namespace QuanLyTiecCuoiUI
         {
             if (!IsOpened("frmTraCuuDichVu"))
             {
-                frmTraCuuDichVu traCuuDichVu = new frmTraCuuDichVu();
+                frmTraCuuDichVu traCuuDichVu = new frmTraCuuDichVu(false);
                 traCuuDichVu.MdiParent = this;
                 traCuuDichVu.Name = "frmTraCuuDichVu";
                 traCuuDichVu.Show();
