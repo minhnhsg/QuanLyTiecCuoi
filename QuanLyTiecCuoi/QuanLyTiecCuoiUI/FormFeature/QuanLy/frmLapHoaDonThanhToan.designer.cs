@@ -33,6 +33,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbbTenCoDau = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tabThongTinOrder = new System.Windows.Forms.TabControl();
+            this.tabDichVu = new System.Windows.Forms.TabPage();
+            this.dgvCacDichVu = new System.Windows.Forms.DataGridView();
+            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabMonAn = new System.Windows.Forms.TabPage();
+            this.dgvMonAn = new System.Windows.Forms.DataGridView();
             this.lblTongTienThanhToan = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.lblTongTienPhat = new System.Windows.Forms.Label();
@@ -53,11 +62,6 @@
             this.lblTienDaThanhToan = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dgvCacDichVu = new System.Windows.Forms.DataGridView();
-            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -74,18 +78,14 @@
             this.lblSoTienTra = new System.Windows.Forms.Label();
             this.gbThongTinThanhToan = new System.Windows.Forms.GroupBox();
             this.btnXuatHoaDon = new System.Windows.Forms.Button();
-            this.tabThongTinOrder = new System.Windows.Forms.TabControl();
-            this.tabDichVu = new System.Windows.Forms.TabPage();
-            this.tabMonAn = new System.Windows.Forms.TabPage();
-            this.dgvMonAn = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCacDichVu)).BeginInit();
-            this.gbThanhToan.SuspendLayout();
-            this.gbThongTinThanhToan.SuspendLayout();
             this.tabThongTinOrder.SuspendLayout();
             this.tabDichVu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCacDichVu)).BeginInit();
             this.tabMonAn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMonAn)).BeginInit();
+            this.gbThanhToan.SuspendLayout();
+            this.gbThongTinThanhToan.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -159,6 +159,106 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hóa đơn thanh toán";
+            // 
+            // tabThongTinOrder
+            // 
+            this.tabThongTinOrder.Controls.Add(this.tabDichVu);
+            this.tabThongTinOrder.Controls.Add(this.tabMonAn);
+            this.tabThongTinOrder.Location = new System.Drawing.Point(17, 22);
+            this.tabThongTinOrder.Name = "tabThongTinOrder";
+            this.tabThongTinOrder.SelectedIndex = 0;
+            this.tabThongTinOrder.Size = new System.Drawing.Size(570, 134);
+            this.tabThongTinOrder.TabIndex = 31;
+            // 
+            // tabDichVu
+            // 
+            this.tabDichVu.Controls.Add(this.dgvCacDichVu);
+            this.tabDichVu.Location = new System.Drawing.Point(4, 25);
+            this.tabDichVu.Name = "tabDichVu";
+            this.tabDichVu.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDichVu.Size = new System.Drawing.Size(562, 105);
+            this.tabDichVu.TabIndex = 0;
+            this.tabDichVu.Text = "Dịch Vụ";
+            this.tabDichVu.UseVisualStyleBackColor = true;
+            // 
+            // dgvCacDichVu
+            // 
+            this.dgvCacDichVu.AllowUserToAddRows = false;
+            this.dgvCacDichVu.AllowUserToDeleteRows = false;
+            this.dgvCacDichVu.AllowUserToResizeRows = false;
+            this.dgvCacDichVu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCacDichVu.ColumnHeadersHeight = 25;
+            this.dgvCacDichVu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ThanhTien,
+            this.Column2,
+            this.DonGia,
+            this.Column4});
+            this.dgvCacDichVu.EnableHeadersVisualStyles = false;
+            this.dgvCacDichVu.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.dgvCacDichVu.Location = new System.Drawing.Point(0, 0);
+            this.dgvCacDichVu.MultiSelect = false;
+            this.dgvCacDichVu.Name = "dgvCacDichVu";
+            this.dgvCacDichVu.ReadOnly = true;
+            this.dgvCacDichVu.RowHeadersVisible = false;
+            this.dgvCacDichVu.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
+            this.dgvCacDichVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCacDichVu.Size = new System.Drawing.Size(562, 105);
+            this.dgvCacDichVu.TabIndex = 9;
+            // 
+            // ThanhTien
+            // 
+            this.ThanhTien.DataPropertyName = "TenDichVu";
+            this.ThanhTien.HeaderText = "Dịch vụ";
+            this.ThanhTien.Name = "ThanhTien";
+            this.ThanhTien.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "SoLuong";
+            this.Column2.HeaderText = "Số lượng";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // DonGia
+            // 
+            this.DonGia.DataPropertyName = "DonGia";
+            this.DonGia.HeaderText = "Đơn giá (VND)";
+            this.DonGia.Name = "DonGia";
+            this.DonGia.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "ThanhTien";
+            this.Column4.HeaderText = "Thành tiền (VND)";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // tabMonAn
+            // 
+            this.tabMonAn.Controls.Add(this.dgvMonAn);
+            this.tabMonAn.Location = new System.Drawing.Point(4, 25);
+            this.tabMonAn.Name = "tabMonAn";
+            this.tabMonAn.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMonAn.Size = new System.Drawing.Size(562, 105);
+            this.tabMonAn.TabIndex = 1;
+            this.tabMonAn.Text = "Món Ăn";
+            this.tabMonAn.UseVisualStyleBackColor = true;
+            // 
+            // dgvMonAn
+            // 
+            this.dgvMonAn.AllowUserToAddRows = false;
+            this.dgvMonAn.AllowUserToDeleteRows = false;
+            this.dgvMonAn.AllowUserToResizeRows = false;
+            this.dgvMonAn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMonAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMonAn.Location = new System.Drawing.Point(0, 0);
+            this.dgvMonAn.MultiSelect = false;
+            this.dgvMonAn.Name = "dgvMonAn";
+            this.dgvMonAn.RowHeadersVisible = false;
+            this.dgvMonAn.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
+            this.dgvMonAn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMonAn.Size = new System.Drawing.Size(562, 105);
+            this.dgvMonAn.TabIndex = 0;
             // 
             // lblTongTienThanhToan
             // 
@@ -240,7 +340,7 @@
             // 
             this.lblConLai.AutoSize = true;
             this.lblConLai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConLai.Location = new System.Drawing.Point(165, 299);
+            this.lblConLai.Location = new System.Drawing.Point(160, 299);
             this.lblConLai.Name = "lblConLai";
             this.lblConLai.Size = new System.Drawing.Size(13, 17);
             this.lblConLai.TabIndex = 22;
@@ -250,7 +350,7 @@
             // 
             this.lblTienDatCoc.AutoSize = true;
             this.lblTienDatCoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTienDatCoc.Location = new System.Drawing.Point(165, 271);
+            this.lblTienDatCoc.Location = new System.Drawing.Point(160, 271);
             this.lblTienDatCoc.Name = "lblTienDatCoc";
             this.lblTienDatCoc.Size = new System.Drawing.Size(13, 17);
             this.lblTienDatCoc.TabIndex = 21;
@@ -260,7 +360,7 @@
             // 
             this.lblTongTienDV.AutoSize = true;
             this.lblTongTienDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTongTienDV.Location = new System.Drawing.Point(165, 217);
+            this.lblTongTienDV.Location = new System.Drawing.Point(160, 217);
             this.lblTongTienDV.Name = "lblTongTienDV";
             this.lblTongTienDV.Size = new System.Drawing.Size(13, 17);
             this.lblTongTienDV.TabIndex = 20;
@@ -270,7 +370,7 @@
             // 
             this.lblTongTienHD.AutoSize = true;
             this.lblTongTienHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTongTienHD.Location = new System.Drawing.Point(165, 244);
+            this.lblTongTienHD.Location = new System.Drawing.Point(160, 244);
             this.lblTongTienHD.Name = "lblTongTienHD";
             this.lblTongTienHD.Size = new System.Drawing.Size(13, 17);
             this.lblTongTienHD.TabIndex = 19;
@@ -280,7 +380,7 @@
             // 
             this.lblTongTienBan.AutoSize = true;
             this.lblTongTienBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTongTienBan.Location = new System.Drawing.Point(165, 186);
+            this.lblTongTienBan.Location = new System.Drawing.Point(160, 186);
             this.lblTongTienBan.Name = "lblTongTienBan";
             this.lblTongTienBan.Size = new System.Drawing.Size(13, 17);
             this.lblTongTienBan.TabIndex = 18;
@@ -351,58 +451,6 @@
             this.label7.Size = new System.Drawing.Size(121, 17);
             this.label7.TabIndex = 10;
             this.label7.Text = "Tổng tiền dịch vụ:";
-            // 
-            // dgvCacDichVu
-            // 
-            this.dgvCacDichVu.AllowUserToAddRows = false;
-            this.dgvCacDichVu.AllowUserToDeleteRows = false;
-            this.dgvCacDichVu.AllowUserToResizeRows = false;
-            this.dgvCacDichVu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCacDichVu.ColumnHeadersHeight = 25;
-            this.dgvCacDichVu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ThanhTien,
-            this.Column2,
-            this.DonGia,
-            this.Column4});
-            this.dgvCacDichVu.EnableHeadersVisualStyles = false;
-            this.dgvCacDichVu.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.dgvCacDichVu.Location = new System.Drawing.Point(0, 0);
-            this.dgvCacDichVu.MultiSelect = false;
-            this.dgvCacDichVu.Name = "dgvCacDichVu";
-            this.dgvCacDichVu.ReadOnly = true;
-            this.dgvCacDichVu.RowHeadersVisible = false;
-            this.dgvCacDichVu.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
-            this.dgvCacDichVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCacDichVu.Size = new System.Drawing.Size(562, 105);
-            this.dgvCacDichVu.TabIndex = 9;
-            // 
-            // ThanhTien
-            // 
-            this.ThanhTien.DataPropertyName = "TenDichVu";
-            this.ThanhTien.HeaderText = "Dịch vụ";
-            this.ThanhTien.Name = "ThanhTien";
-            this.ThanhTien.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "SoLuong";
-            this.Column2.HeaderText = "Số lượng";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // DonGia
-            // 
-            this.DonGia.DataPropertyName = "DonGia";
-            this.DonGia.HeaderText = "Đơn giá (VND)";
-            this.DonGia.Name = "DonGia";
-            this.DonGia.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "ThanhTien";
-            this.Column4.HeaderText = "Thành tiền (VND)";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             // 
             // label6
             // 
@@ -566,54 +614,7 @@
             this.btnXuatHoaDon.TabIndex = 11;
             this.btnXuatHoaDon.Text = "Xuất hóa đơn";
             this.btnXuatHoaDon.UseVisualStyleBackColor = true;
-            // 
-            // tabThongTinOrder
-            // 
-            this.tabThongTinOrder.Controls.Add(this.tabDichVu);
-            this.tabThongTinOrder.Controls.Add(this.tabMonAn);
-            this.tabThongTinOrder.Location = new System.Drawing.Point(17, 22);
-            this.tabThongTinOrder.Name = "tabThongTinOrder";
-            this.tabThongTinOrder.SelectedIndex = 0;
-            this.tabThongTinOrder.Size = new System.Drawing.Size(570, 134);
-            this.tabThongTinOrder.TabIndex = 31;
-            // 
-            // tabDichVu
-            // 
-            this.tabDichVu.Controls.Add(this.dgvCacDichVu);
-            this.tabDichVu.Location = new System.Drawing.Point(4, 25);
-            this.tabDichVu.Name = "tabDichVu";
-            this.tabDichVu.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDichVu.Size = new System.Drawing.Size(562, 105);
-            this.tabDichVu.TabIndex = 0;
-            this.tabDichVu.Text = "Dịch Vụ";
-            this.tabDichVu.UseVisualStyleBackColor = true;
-            // 
-            // tabMonAn
-            // 
-            this.tabMonAn.Controls.Add(this.dgvMonAn);
-            this.tabMonAn.Location = new System.Drawing.Point(4, 25);
-            this.tabMonAn.Name = "tabMonAn";
-            this.tabMonAn.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMonAn.Size = new System.Drawing.Size(562, 105);
-            this.tabMonAn.TabIndex = 1;
-            this.tabMonAn.Text = "Món Ăn";
-            this.tabMonAn.UseVisualStyleBackColor = true;
-            // 
-            // dgvMonAn
-            // 
-            this.dgvMonAn.AllowUserToAddRows = false;
-            this.dgvMonAn.AllowUserToDeleteRows = false;
-            this.dgvMonAn.AllowUserToResizeRows = false;
-            this.dgvMonAn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvMonAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMonAn.Location = new System.Drawing.Point(0, 0);
-            this.dgvMonAn.MultiSelect = false;
-            this.dgvMonAn.Name = "dgvMonAn";
-            this.dgvMonAn.RowHeadersVisible = false;
-            this.dgvMonAn.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
-            this.dgvMonAn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMonAn.Size = new System.Drawing.Size(562, 105);
-            this.dgvMonAn.TabIndex = 0;
+            this.btnXuatHoaDon.Click += new System.EventHandler(this.btnXuatHoaDon_Click);
             // 
             // frmLapHoaDonThanhToan
             // 
@@ -638,15 +639,15 @@
             this.Load += new System.EventHandler(this.frmLapHoaDonThanhToan_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabThongTinOrder.ResumeLayout(false);
+            this.tabDichVu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCacDichVu)).EndInit();
+            this.tabMonAn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMonAn)).EndInit();
             this.gbThanhToan.ResumeLayout(false);
             this.gbThanhToan.PerformLayout();
             this.gbThongTinThanhToan.ResumeLayout(false);
             this.gbThongTinThanhToan.PerformLayout();
-            this.tabThongTinOrder.ResumeLayout(false);
-            this.tabDichVu.ResumeLayout(false);
-            this.tabMonAn.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMonAn)).EndInit();
             this.ResumeLayout(false);
 
         }

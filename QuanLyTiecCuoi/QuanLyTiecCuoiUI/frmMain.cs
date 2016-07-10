@@ -107,7 +107,7 @@ namespace QuanLyTiecCuoiUI
                 RolesSize.Add(0);
                 SpaceSice.Add(60);
             }
-                
+
             if (valueRoles == 1)
             {
                 //nhân viên lễ tân
@@ -139,12 +139,12 @@ namespace QuanLyTiecCuoiUI
                 if (valueRoles == 3)
             {
                 //quản lý csvc
-                RolesSize[1] = 35;
+                RolesSize[1] = 33; //35 33
                 RolesSize[3] = 18;
                 RolesSize[5] = 0;
                 RolesSize[7] = 0;
 
-                SpaceSice[1] = 25;
+                SpaceSice[1] = 27; //25 27
                 SpaceSice[3] = 42;
                 SpaceSice[5] = 60;
                 SpaceSice[7] = 60;
@@ -197,7 +197,7 @@ namespace QuanLyTiecCuoiUI
             {
                 pnlRight.Size = new Size(60, base.Height);
                 MiniumMenu = true;
-            }             
+            }
             else
             {
                 pnlRight.Size = new Size(235, base.Height);
@@ -226,7 +226,7 @@ namespace QuanLyTiecCuoiUI
                 return;
             }
             //Another click
-            
+
             tlpMenuItem.RowStyles[MenuClickIndex].Height = 0;
             tlpMenuItem.RowStyles[8].Height = SpaceSice[1];
             tlpMenuItem.RowStyles[1].Height = RolesSize[1];
@@ -264,7 +264,7 @@ namespace QuanLyTiecCuoiUI
             tlpMenuItem.Controls.Add(tracuu, 0, 3);
             btnTraCuu.BackColor = Color.FromArgb(0, 64, 64);
             MenuClickIndex = 3;
-            
+
         }
 
         private void btnLapBaoCao_Click(object sender, EventArgs e)
@@ -376,7 +376,7 @@ namespace QuanLyTiecCuoiUI
             if (!IsOpened("frmTiepNhanSanh"))
             {
                 frmTiepNhanSanh tiepnhansanh = new frmTiepNhanSanh();
-                tiepnhansanh.MdiParent = this;tiepnhansanh.Name = "frmTiepNhanSanh";
+                tiepnhansanh.MdiParent = this; tiepnhansanh.Name = "frmTiepNhanSanh";
                 tiepnhansanh.Show();
             }
         }
@@ -610,7 +610,7 @@ namespace QuanLyTiecCuoiUI
             try
             {
                 ovalAvatar.Image = Image.FromFile(path);
-                ovalAvatar.SizeMode = PictureBoxSizeMode.StretchImage;               
+                ovalAvatar.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch (Exception ex)
             {
@@ -659,14 +659,14 @@ namespace QuanLyTiecCuoiUI
                 txtPasswordNguoiDung.Text = string.Empty;
                 MessageBox.Show("Mời nhập mật khẩu mới", "Thông báo");
                 btnCapNhatThongTinNguoiDung.Enabled = true;
-            }           
+            }
         }
 
         private void btnCapNhatThongTinNguoiDung_Click(object sender, EventArgs e)
         {
             if (txtPasswordNguoiDung.Text == string.Empty)
             {
-                MessageBox.Show("Bạn phải nhập mật khẩu mới","Thông báo");
+                MessageBox.Show("Bạn phải nhập mật khẩu mới", "Thông báo");
                 return;
             }
             DTO_NhanVien nhanvien = new DTO_NhanVien();
