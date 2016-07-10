@@ -495,11 +495,10 @@ namespace QuanLyTiecCuoiUI
         {
             if (!IsOpened("frmTraCuuDichVu"))
             {
-                //Chưa làm
-                //frmQuanLyLoaiSanh quanlyloaisanh = new frmQuanLyLoaiSanh();
-                //quanlyloaisanh.MdiParent = this;
-                //quanlyloaisanh.Name = "frmQuanLyLoaiSanh";
-                //quanlyloaisanh.Show();
+                frmTraCuuDichVu traCuuDichVu = new frmTraCuuDichVu();
+                traCuuDichVu.MdiParent = this;
+                traCuuDichVu.Name = "frmTraCuuDichVu";
+                traCuuDichVu.Show();
             }
         }
 
@@ -507,10 +506,10 @@ namespace QuanLyTiecCuoiUI
         {
             if (!IsOpened("frmTraCuuTiecCuoi"))
             {
-                frmTraCuuTiecCuoi tracuutieccuoi = new frmTraCuuTiecCuoi();
-                tracuutieccuoi.MdiParent = this;
-                tracuutieccuoi.Name = "frmTraCuuTiecCuoi";
-                tracuutieccuoi.Show();
+                frmTraCuuTiecCuoi traCuuTiecCuoi = new frmTraCuuTiecCuoi();
+                traCuuTiecCuoi.MdiParent = this;
+                traCuuTiecCuoi.Name = "frmTraCuuTiecCuoi";
+                traCuuTiecCuoi.Show();
             }
         }
 

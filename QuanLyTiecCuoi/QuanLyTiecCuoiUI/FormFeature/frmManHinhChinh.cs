@@ -459,7 +459,7 @@ namespace QuanLyTiecCuoiUI
                 SetStateMenuDefault();
                 this.Hide();
                 Program.dangnhapform.Dispose();
-                Program.manhinhchinh.Dispose();
+                //Program.manhinhchinh.Dispose();
                 Application.Exit();
             }
             else

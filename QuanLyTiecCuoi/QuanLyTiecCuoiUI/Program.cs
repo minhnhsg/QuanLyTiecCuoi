@@ -40,13 +40,9 @@ namespace QuanLyTiecCuoiUI
             else
             {
                 KhoiTaoForm();
-                //Application.Run(new frmNhanDatTiecCuoi());
-                //Application.Run(new frmThayDoiQuyDinh());
-                //Application.Run(dangnhapform);
-                //Application.Run(new frmQuanLyNhanVien());
                 Application.Run(dangnhapform);
-                //Application.Run(new frmMain());
             }
         }
+
     }
 }

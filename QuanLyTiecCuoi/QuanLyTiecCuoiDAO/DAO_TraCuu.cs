@@ -63,5 +63,13 @@ WHERE TIECCUOI.NgayDaiTiec = '{0}'", traCuu.key);
             return DatabaseHelper.GetData(query);
         }
         #endregion
+
+        #region TraCuu_DichVu
+        public static DataTable TraCuuDichVu(DTO_TraCuu traCuu)
+        {
+            string query = String.Format(@"SELECT * FROM DICHVU WHERE dbo.BoDau(TenDichVu) LIKE N'%{0}%'", traCuu.key);
+            return DatabaseHelper.GetData(query);
+        }
+        #endregion
     }
 }

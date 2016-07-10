@@ -59,7 +59,7 @@
             this.tcTraCuuMonAn.Location = new System.Drawing.Point(12, 228);
             this.tcTraCuuMonAn.Name = "tcTraCuuMonAn";
             this.tcTraCuuMonAn.SelectedIndex = 0;
-            this.tcTraCuuMonAn.Size = new System.Drawing.Size(400, 284);
+            this.tcTraCuuMonAn.Size = new System.Drawing.Size(400, 281);
             this.tcTraCuuMonAn.TabIndex = 0;
             // 
             // tabPage1
@@ -68,7 +68,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(392, 255);
+            this.tabPage1.Size = new System.Drawing.Size(392, 252);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Danh sách món ăn";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -88,7 +88,7 @@
             this.dgvDanhSachMonAn.RowHeadersVisible = false;
             this.dgvDanhSachMonAn.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
             this.dgvDanhSachMonAn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDanhSachMonAn.Size = new System.Drawing.Size(392, 255);
+            this.dgvDanhSachMonAn.Size = new System.Drawing.Size(392, 252);
             this.dgvDanhSachMonAn.TabIndex = 0;
             this.dgvDanhSachMonAn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachMonAn_CellClick);
             this.dgvDanhSachMonAn.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvDanhSachMonAn_DataBindingComplete);
@@ -99,7 +99,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(392, 255);
+            this.tabPage2.Size = new System.Drawing.Size(392, 252);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Kết quả tìm kiếm";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -119,7 +119,7 @@
             this.dgvKetQuaTimKiem.RowHeadersVisible = false;
             this.dgvKetQuaTimKiem.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
             this.dgvKetQuaTimKiem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKetQuaTimKiem.Size = new System.Drawing.Size(390, 187);
+            this.dgvKetQuaTimKiem.Size = new System.Drawing.Size(392, 252);
             this.dgvKetQuaTimKiem.TabIndex = 0;
             this.dgvKetQuaTimKiem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKetQuaTimKiem_CellClick);
             this.dgvKetQuaTimKiem.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvKetQuaTimKiem_DataBindingComplete);
@@ -169,6 +169,7 @@
             // 
             // btnChon
             // 
+            this.btnChon.ForeColor = System.Drawing.Color.Red;
             this.btnChon.Location = new System.Drawing.Point(135, 109);
             this.btnChon.Name = "btnChon";
             this.btnChon.Size = new System.Drawing.Size(100, 30);
@@ -194,7 +195,7 @@
             this.lbDonGia.AutoSize = true;
             this.lbDonGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDonGia.ForeColor = System.Drawing.Color.Red;
-            this.lbDonGia.Location = new System.Drawing.Point(132, 45);
+            this.lbDonGia.Location = new System.Drawing.Point(132, 46);
             this.lbDonGia.MinimumSize = new System.Drawing.Size(250, 0);
             this.lbDonGia.Name = "lbDonGia";
             this.lbDonGia.Size = new System.Drawing.Size(250, 17);
@@ -226,7 +227,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 528);
+            this.ClientSize = new System.Drawing.Size(425, 521);
             this.Controls.Add(this.gbThongTinMonAn);
             this.Controls.Add(this.gbTimKiem);
             this.Controls.Add(this.tcTraCuuMonAn);

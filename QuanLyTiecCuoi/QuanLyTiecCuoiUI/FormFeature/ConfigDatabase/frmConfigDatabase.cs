@@ -23,7 +23,7 @@ namespace QuanLyTiecCuoiUI.FormFeature.ConfigDatabase
         {
             String dataSouce = txtDataSouce.Text;
             String databaseName = txtDatabaseName.Text;
-           
+
             DatabaseHelper.CONNECTION_STRING = DatabaseHelper.CreateConnectionString(dataSouce, databaseName);
             Debug.WriteLine(DatabaseHelper.CONNECTION_STRING);
             QuanLyTiecCuoiUI.Properties.Settings.Default.ConnectionString = DatabaseHelper.CONNECTION_STRING;
@@ -32,23 +32,21 @@ namespace QuanLyTiecCuoiUI.FormFeature.ConfigDatabase
             if (openSucess)
             {
                 DatabaseHelper.CloseConnection();
-                frmManHinhChinh frmMain = new frmManHinhChinh();
-                frmMain.ShowDialog();
+                //Check lại fần này
+                //frmManHinhChinh frmMain = new frmManHinhChinh();
+                //frmMain.ShowDialog();
                 this.Close();
-              
-               
             }
             else
             {
-              DialogResult result =   MessageBox.Show("Kết nối không thành công vui lòng thử lại!", "Lỗi connect", MessageBoxButtons.OKCancel);
-              if (result == DialogResult.OK)
-              {
-                  txtDataSouce.Text = "";
-                  txtDatabaseName.Text = "";
-              }
+                DialogResult result = MessageBox.Show("Kết nối không thành công, vui lòng thử lại!", "Lỗi connect", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.OK)
+                {
+                    txtDataSouce.Text = "";
+                    txtDatabaseName.Text = "";
+                }
             }
         }
 
-      
     }
 }

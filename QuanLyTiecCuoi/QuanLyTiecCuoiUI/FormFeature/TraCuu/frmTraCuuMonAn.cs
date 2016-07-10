@@ -17,12 +17,14 @@ namespace QuanLyTiecCuoiUI
         public string mTenMonAnSelected = "-";
         public string mMaMonAnSelected;
         private DTO_TraCuu traCuu = new DTO_TraCuu();
+
         public frmTraCuuMonAn()
         {
             InitializeComponent();
             tcTraCuuMonAn.SelectedTab = tabPage1;
             ptrHinh.ImageLocation = @"DanhSachMonAn\Unknow.png";
         }
+
         private void frmTraCuuMonAn_Load(object sender, EventArgs e)
         {
             dgvDanhSachMonAn.DataSource = BUS_MonAn.GetDataTableMonAn();                       
@@ -64,7 +66,6 @@ namespace QuanLyTiecCuoiUI
         private void dgvDanhSachMonAn_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvDanhSachMonAn.ClearSelection();
-            //dgvDanhSachMonAn.Rows[0].Selected = true;
             dgvDanhSachMonAn.Columns["MaMonAn"].Visible = false;
             dgvDanhSachMonAn.Columns["HinhAnh"].Visible = false;
             dgvDanhSachMonAn.Columns["GhiChu"].Visible = false;
@@ -113,7 +114,6 @@ namespace QuanLyTiecCuoiUI
             lbGhiChu.Text = dgvKetQuaTimKiem["GhiChu", row].Value.ToString();
             this.mMaMonAnSelected = dgvKetQuaTimKiem["MaMonAn", row].Value.ToString();
         }
-
         #endregion
 
         private void btnChon_Click(object sender, EventArgs e)

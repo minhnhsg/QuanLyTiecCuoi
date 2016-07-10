@@ -41,5 +41,12 @@ namespace BUS
         }
         #endregion
 
+        #region TraCuu_DichVu
+        public static DataTable TraCuuDichVu(DTO_TraCuu key)
+        {
+            return DAO_TraCuu.TraCuuDichVu(key);
+        }
+        #endregion
+
     }
 }
