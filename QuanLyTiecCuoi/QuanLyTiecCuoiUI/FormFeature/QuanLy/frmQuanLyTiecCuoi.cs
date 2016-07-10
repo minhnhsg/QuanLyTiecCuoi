@@ -341,13 +341,13 @@ namespace QuanLyTiecCuoiUI
             if (mPhieuDichVuIsEdited)
             {
                 // 3. Luu Phieu dat dich vu
-                // 3.1 Xoa phieu dat ban cu
+                // 3.1 Xoa phieu dich vu cu
                 BUS_QuanLyTiecCuoi.DeleteDichVu(tiecCuoi.MaTiecCuoi);
 
-                // 3.2 Them phieu dat ban moi
+                // 3.2 Them phieu dich vu moi
                 if (dgvDanhSachDichVu.RowCount > 0)
                 {
-                    foreach (DataGridViewRow row in dgvDanhSachMonAn.Rows)
+                    foreach (DataGridViewRow row in dgvDanhSachDichVu.Rows)
                     {
                         BUS_QuanLyTiecCuoi.InsertDichVu(tiecCuoi.MaTiecCuoi, row.Cells["MaDichVu"].Value.ToString(), row.Cells["DonGiaTT"].Value.ToString(), row.Cells["SoLuong"].Value.ToString());
                     }
@@ -746,7 +746,7 @@ namespace QuanLyTiecCuoiUI
                             }
                         }
                         dgvDanhSachDichVu.DataSource = dtt;
-                        txtDonGiaDatDichVu.Text = "";
+                        txtDonGiaDatDichVu.Text = txtSoLuongDichVuDat.Text = "";
                     }
 
                     return;
