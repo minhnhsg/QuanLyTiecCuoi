@@ -338,10 +338,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmQuanLyDichVu";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quản Lý Dịch Vụ";
+            this.Text = "QUẢN LÝ DỊCH VỤ";
             this.Load += new System.EventHandler(this.frmQuanLyDichVu_Load);
             this.gbDanhSachDichVu.ResumeLayout(false);
             this.gbChucNang.ResumeLayout(false);
