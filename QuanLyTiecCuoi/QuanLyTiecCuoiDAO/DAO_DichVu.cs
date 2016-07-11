@@ -66,8 +66,9 @@ namespace DAO
         }
         public static int LastIndex()
         {
-            string query = string.Format(@"SELECT TOP 1 MaDichVu FROM DICHVU ORDER BY MaDichVu DESC");
-            return (int)DatabaseHelper.GetData(query).Rows[0].ItemArray[0];
+            //string query = string.Format(@"SELECT TOP 1 MaDichVu FROM DICHVU ORDER BY MaDichVu DESC");
+            string query = string.Format(@"SELECT IDENT_CURRENT('DICHVU')");
+            return Int32.Parse(DatabaseHelper.GetData(query).Rows[0].ItemArray[0].ToString());
         }
     }
 }

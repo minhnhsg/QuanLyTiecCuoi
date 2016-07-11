@@ -66,8 +66,9 @@ namespace DAO
         }
         public static int LastIndex()
         {
-            string query = string.Format(@"SELECT TOP 1 MaMonAn FROM MONAN ORDER BY MaMonAn DESC");
-            return (int)DatabaseHelper.GetData(query).Rows[0].ItemArray[0];
+            //string query = string.Format(@"SELECT TOP 1 MaMonAn FROM MONAN ORDER BY MaMonAn DESC");
+            string query = string.Format(@"SELECT IDENT_CURRENT('MONAN')");            
+            return Int32.Parse(DatabaseHelper.GetData(query).Rows[0].ItemArray[0].ToString());
         }
     }
 }
