@@ -48,7 +48,7 @@
             // Connect
             // 
             this.Connect.Location = new System.Drawing.Point(146, 72);
-            this.Connect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Connect.Margin = new System.Windows.Forms.Padding(4);
             this.Connect.Name = "Connect";
             this.Connect.Size = new System.Drawing.Size(100, 28);
             this.Connect.TabIndex = 1;
@@ -59,7 +59,7 @@
             // txtDataSouce
             // 
             this.txtDataSouce.Location = new System.Drawing.Point(129, 10);
-            this.txtDataSouce.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDataSouce.Margin = new System.Windows.Forms.Padding(4);
             this.txtDataSouce.Name = "txtDataSouce";
             this.txtDataSouce.Size = new System.Drawing.Size(242, 23);
             this.txtDataSouce.TabIndex = 2;
@@ -78,7 +78,7 @@
             // txtDatabaseName
             // 
             this.txtDatabaseName.Location = new System.Drawing.Point(129, 41);
-            this.txtDatabaseName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDatabaseName.Margin = new System.Windows.Forms.Padding(4);
             this.txtDatabaseName.Name = "txtDatabaseName";
             this.txtDatabaseName.Size = new System.Drawing.Size(242, 23);
             this.txtDatabaseName.TabIndex = 4;
@@ -95,12 +95,13 @@
             this.Controls.Add(this.Connect);
             this.Controls.Add(this.lblServerName);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmConfigDatabase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Config Database";
+            this.Load += new System.EventHandler(this.frmConfigDatabase_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

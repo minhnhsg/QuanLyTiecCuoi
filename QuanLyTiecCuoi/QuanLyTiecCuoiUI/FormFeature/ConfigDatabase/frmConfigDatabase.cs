@@ -35,8 +35,11 @@ namespace QuanLyTiecCuoiUI.FormFeature.ConfigDatabase
                 
                 Program.manhinhchinh = new frmMain();
                 Program.dangnhapform = new frmLoginForm();
-                Program.dangnhapform.ShowDialog();
-                this.Close();
+                Program.manhinhchinh.Hide();
+                Program.dangnhapform.Show();
+                //Program.dangnhapform.ShowDialog();
+                //this.Close();
+                this.Hide();
             }
             else
             {
@@ -47,6 +50,11 @@ namespace QuanLyTiecCuoiUI.FormFeature.ConfigDatabase
                     txtDatabaseName.Text = "";
                 }
             }
+        }
+
+        private void frmConfigDatabase_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

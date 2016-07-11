@@ -116,7 +116,7 @@ namespace QuanLyTiecCuoiUI
                 RolesSize[5] = 0;
                 RolesSize[7] = 0;
 
-                SpaceSice[1] = 46;
+                SpaceSice[1] = 47;
                 SpaceSice[3] = 42;
                 SpaceSice[5] = 60;
                 SpaceSice[7] = 60;
@@ -130,7 +130,7 @@ namespace QuanLyTiecCuoiUI
                 RolesSize[5] = 8;
                 RolesSize[7] = 0;
 
-                SpaceSice[1] = 52;
+                SpaceSice[1] = 53;
                 SpaceSice[3] = 42;
                 SpaceSice[5] = 52;
                 SpaceSice[7] = 60;
@@ -139,12 +139,12 @@ namespace QuanLyTiecCuoiUI
                 if (valueRoles == 3)
             {
                 //quản lý csvc
-                RolesSize[1] = 33; //35 33
+                RolesSize[1] = 35; //35 33
                 RolesSize[3] = 18;
                 RolesSize[5] = 0;
                 RolesSize[7] = 0;
 
-                SpaceSice[1] = 27; //25 27
+                SpaceSice[1] = 26; //25 27 30
                 SpaceSice[3] = 42;
                 SpaceSice[5] = 60;
                 SpaceSice[7] = 60;
@@ -592,7 +592,7 @@ namespace QuanLyTiecCuoiUI
                 quanly.ResetMenu(MaPhanQuyen);
                 Program.manhinhchinh.Hide();
                 Program.dangnhapform.SetStateDefault();
-                Program.dangnhapform.Show();
+                Program.dangnhapform.Show();                
             }
         }
 
