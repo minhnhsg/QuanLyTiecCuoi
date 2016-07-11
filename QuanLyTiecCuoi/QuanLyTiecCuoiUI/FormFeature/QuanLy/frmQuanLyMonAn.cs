@@ -158,6 +158,7 @@ namespace QuanLyTiecCuoiUI
             if (InputsAreNull())
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ!");
+                txtTenMonAn.Focus();
             }
 
             //INSERT State

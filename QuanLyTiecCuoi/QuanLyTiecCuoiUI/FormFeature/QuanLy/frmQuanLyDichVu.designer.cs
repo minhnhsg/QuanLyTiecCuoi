@@ -172,6 +172,7 @@
             // txtTenDichVu
             // 
             this.txtTenDichVu.Location = new System.Drawing.Point(110, 22);
+            this.txtTenDichVu.MaxLength = 100;
             this.txtTenDichVu.Name = "txtTenDichVu";
             this.txtTenDichVu.Size = new System.Drawing.Size(206, 23);
             this.txtTenDichVu.TabIndex = 1;
@@ -309,6 +310,7 @@
             // txtDonGia
             // 
             this.txtDonGia.Location = new System.Drawing.Point(110, 51);
+            this.txtDonGia.MaxLength = 18;
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(206, 23);
             this.txtDonGia.TabIndex = 2;

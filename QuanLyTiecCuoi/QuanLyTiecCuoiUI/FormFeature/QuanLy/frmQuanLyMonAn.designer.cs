@@ -154,6 +154,7 @@
             // txtTenMonAn
             // 
             this.txtTenMonAn.Location = new System.Drawing.Point(110, 22);
+            this.txtTenMonAn.MaxLength = 100;
             this.txtTenMonAn.Name = "txtTenMonAn";
             this.txtTenMonAn.Size = new System.Drawing.Size(206, 23);
             this.txtTenMonAn.TabIndex = 1;
@@ -261,6 +262,7 @@
             // txtDonGia
             // 
             this.txtDonGia.Location = new System.Drawing.Point(110, 51);
+            this.txtDonGia.MaxLength = 18;
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(206, 23);
             this.txtDonGia.TabIndex = 2;

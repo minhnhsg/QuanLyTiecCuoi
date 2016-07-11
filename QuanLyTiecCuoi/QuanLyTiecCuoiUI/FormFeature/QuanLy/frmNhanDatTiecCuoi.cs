@@ -70,7 +70,7 @@ namespace QuanLyTiecCuoiUI
         {
             InitializeComponent();
             //Setup state default
-            SetupFormSizeDefault(false);           
+            SetupFormSizeDefault(false);
             SetupDefaultControlState();
             //Load
             LoadSanhAndCa();
@@ -98,7 +98,7 @@ namespace QuanLyTiecCuoiUI
             {
                 cboDanhSachMonAn.SelectedIndex = 0;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -116,7 +116,7 @@ namespace QuanLyTiecCuoiUI
             }
             catch (Exception ex)
             {
-                
+
             }
         }
 
@@ -143,7 +143,7 @@ namespace QuanLyTiecCuoiUI
                     cboSanh.SelectedIndex = 0;
                     cboSanh.SelectedItem = 0;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
 
                 }
@@ -154,7 +154,7 @@ namespace QuanLyTiecCuoiUI
             }
             catch (Exception ex)
             {
-                
+
             }
         }
         private void cboSanh_SelectedIndexChanged(object sender, EventArgs e)
@@ -175,7 +175,7 @@ namespace QuanLyTiecCuoiUI
         }
         #endregion
 
-        #region load form 
+        #region load form
         //load form 
         private void frmNhanDatTiecCuoi_Load(object sender, EventArgs e)
         {
@@ -184,7 +184,7 @@ namespace QuanLyTiecCuoiUI
 
         #endregion
 
-        #region event Nhập tiệc 
+        #region event Nhập tiệc
 
         private void txtTenChuRe_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -204,7 +204,7 @@ namespace QuanLyTiecCuoiUI
                 e.Handled = (e.KeyChar == (char)Keys.Space);
             }
             //Ngăn ký tự số
-            if (char.IsDigit(e.KeyChar)) 
+            if (char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -232,16 +232,16 @@ namespace QuanLyTiecCuoiUI
         }
         private void txtDienThoai_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //chiều dài số điện thoại, quá 11 thì xóa
-            if (txtDienThoai.Text.Length > 10)
+            //chiều dài số điện thoại, quá 12 thì xóa
+            if (txtDienThoai.Text.Length > 12)
             {
                 e.KeyChar = (char)Keys.Back;
                 return;
             }
-                
+
             //first keys
             if ((sender as TextBox).SelectionStart == 0)
-            {               
+            {
                 e.Handled = (e.KeyChar == (char)Keys.Space);
                 //first key = 0
                 if (e.KeyChar != (char)Keys.D0)
@@ -281,7 +281,7 @@ namespace QuanLyTiecCuoiUI
         private bool CheckStateToShow()
         {
             if (txtDienThoai.Text.Length < 6) return false;
-            if (txtTenChuRe.Text == "" || txtTenCoDau.Text == "" || cboCa.SelectedIndex < 0 || cboSanh.SelectedIndex < 0 || txtDienThoai.Text == "") 
+            if (txtTenChuRe.Text == "" || txtTenCoDau.Text == "" || cboCa.SelectedIndex < 0 || cboSanh.SelectedIndex < 0 || txtDienThoai.Text == "")
             {
                 return false;
             }
@@ -334,7 +334,7 @@ namespace QuanLyTiecCuoiUI
                 txtSoLuongBanDuTru.Text = "0";
                 txtDonGiaYeuCau.Text = lblDonGiaMacDinh.Text.Substring(0, lblDonGiaMacDinh.Text.Length - 4);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return;
             }
@@ -353,17 +353,19 @@ namespace QuanLyTiecCuoiUI
             if (!CheckRightTienDatCoc(txtTienDatCoc.Text))
             {
                 MessageBox.Show("Tiền đặt cọc phải là bội số của 500 đồng", "Thông báo");
+                txtTienDatCoc.Focus();
                 return;
             }
             //Kiểm tra đã đặt hóa đơn chưa 
             if (!CheckDatTiecState())
             {
                 MessageBox.Show("Bạn bắt buộc phải đặt thực đơn ", "Thông báo");
+                btnPhieuDatBan.Focus();
                 return;
             }
 
             //Confirm infor 
-            if (txtTenChuRe.Text == "" || txtTenCoDau.Text == "" || txtTienDatCoc.Text == "" || cboCa.SelectedIndex < 0 || cboSanh.SelectedIndex < 0 || txtTienDatCoc.Text == "") 
+            if (txtTenChuRe.Text == "" || txtTenCoDau.Text == "" || txtTienDatCoc.Text == "" || cboCa.SelectedIndex < 0 || cboSanh.SelectedIndex < 0 || txtTienDatCoc.Text == "")
             {
                 ShowNotification(true);
                 return;
@@ -371,6 +373,7 @@ namespace QuanLyTiecCuoiUI
             if (DateTime.Compare(dtpNgayDaiTiec.Value, dtpNgayDatTiec.Value) < 0 || DateTime.Compare(dtpNgayDaiTiec.Value, dtpNgayDatTiec.Value) == 0)
             {
                 MessageBox.Show("Ngày đãi tiệc phải sau ngày đặt tiệc ít nhất 1 ngày", "Thông báo");
+                dtpNgayDaiTiec.Focus();
                 return;
             }
             //Add DTO
@@ -393,9 +396,10 @@ namespace QuanLyTiecCuoiUI
             tiec.MaSanh = Convert.ToInt32(cboSanh.SelectedValue.ToString());
             tiec.NgayDaiTiec = dtpNgayDaiTiec.Value.ToString("MM/dd/yyyy");
             DataTable re = BUS_NhanDatTiecCuoi.GetDate(tiec);
-            if (re.Rows.Count > 0)  
+            if (re.Rows.Count > 0)
             {
                 MessageBox.Show("Chọn lại thời gian tổ chức tiệc: Ca, ngày đãi tiệc, vì thời gian đã bị trùng", "Thông báo");
+                dtpNgayDaiTiec.Focus();
                 return;
             }
             //tính chi phí 1 bàn tiệc 
@@ -422,6 +426,7 @@ namespace QuanLyTiecCuoiUI
             if (Convert.ToDecimal(txtTienDatCoc.Text) < minTiencoc)
             {
                 MessageBox.Show("Tiền đặt cọc phải ít nhất bằng 5% tổng giá trị đặt tiệc - >=" + minTiencoc + " VNĐ");
+                txtTienDatCoc.Focus();
                 return;
             }
             //Thêm vào bảng tiệc cưới
@@ -443,7 +448,7 @@ namespace QuanLyTiecCuoiUI
                     phieudatban.SoBanDuTru = Int32.Parse(txtSoLuongBanDuTru.Text);
                 phieudatban.GhiChu = txtGhiChuThongTinTiecCuoi.Text;
                 //tính đơn giá bàn
-                
+
                 phieudatban.DonGiaBan = sum1;
                 bool statePhieu = BUS_NhanDatTiecCuoi.InsertPhieuDatBan(phieudatban);
                 if (statePhieu)
@@ -459,7 +464,7 @@ namespace QuanLyTiecCuoiUI
                             BUS_NhanDatTiecCuoi.InsertChiTietDatBan(item);
                         }
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
 
                     }
@@ -476,7 +481,7 @@ namespace QuanLyTiecCuoiUI
                         BUS_NhanDatTiecCuoi.InsertChiTietDatDichVu(item);
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Thêm phiếu đặt dịch vụ thất bại");
                 }
@@ -541,12 +546,13 @@ namespace QuanLyTiecCuoiUI
                 if (re.Rows.Count > 0)
                 {
                     MessageBox.Show("Chọn lại thời gian tổ chức tiệc: Ca, ngày đãi tiệc, vì thời gian đã bị trùng", "Thông báo");
+                    dtpNgayDaiTiec.Focus();
                     return;
                 }
                 //Load new state cho phiếu đặt dịch vụ
                 this.Size = new Size(835, 570);
                 this.MaximumSize = this.MinimumSize = new Size(835, 570);
-                
+
                 SetupStateControlTiecCuoi(true);
                 pnlPhieuDichVu.Visible = false;
                 txtSoLuongBanDuTru.Text = "0";
@@ -564,7 +570,16 @@ namespace QuanLyTiecCuoiUI
                 this.Size = new Size(530, 570);
                 this.MaximumSize = this.MinimumSize = new Size(530, 570);
                 ShowNotification(true);
-                MessageBox.Show("Thông tin khách hàng - điện thoại liên lạc phải được nhập đầy đủ trước", "Thông báo");
+                if (txtDienThoai.Text.Length < 6)
+                {
+                    MessageBox.Show("Số điện thoại quá ngắn. Vui lòng nhập lại (6 chữ số trở lên).", "Thông báo");
+                    txtDienThoai.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Thông tin khách hàng - điện thoại liên lạc phải được nhập đầy đủ trước", "Thông báo");
+                    txtTenChuRe.Focus();
+                }
             }
         }
 
@@ -580,12 +595,13 @@ namespace QuanLyTiecCuoiUI
                 if (re.Rows.Count > 0)
                 {
                     MessageBox.Show("Chọn lại thời gian tổ chức tiệc: Ca, ngày đãi tiệc, vì thời gian đã bị trùng", "Thông báo");
+                    dtpNgayDaiTiec.Focus();
                     return;
                 }
-                
+
                 this.Size = new Size(835, 570);
                 this.MaximumSize = this.MinimumSize = new Size(835, 570);
-                SetupStateControlTiecCuoi(true);               
+                SetupStateControlTiecCuoi(true);
                 pnlPhieuDichVu.Visible = true;
                 lstDichVuInsert.Clear();
                 lstChiTietDichVu.Clear();
@@ -597,7 +613,16 @@ namespace QuanLyTiecCuoiUI
                 this.Size = new Size(530, 570);
                 this.MaximumSize = this.MinimumSize = new Size(530, 570);
                 ShowNotification(true);
-                MessageBox.Show("Thông tin khách hàng - điện thoại liên lạc phải được nhập đầy đủ trước", "Thông báo");
+                if (txtDienThoai.Text.Length < 6)
+                {
+                    MessageBox.Show("Số điện thoại quá ngắn. Vui lòng nhập lại (6 chữ số trở lên).", "Thông báo");
+                    txtDienThoai.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Thông tin khách hàng - điện thoại liên lạc phải được nhập đầy đủ trước", "Thông báo");
+                    txtTenChuRe.Focus();
+                }
             }
         }
         #endregion
@@ -674,7 +699,7 @@ namespace QuanLyTiecCuoiUI
                 e.KeyChar = (char)Keys.Back;
                 return;
             }
-               
+
             if ((sender as TextBox).SelectionStart == 0)
             {
                 txtSoLuongDichVuDat.Text = string.Empty;
@@ -754,7 +779,7 @@ namespace QuanLyTiecCuoiUI
             catch (Exception ex)
             {
 
-            }      
+            }
         }
 
         private void btnChonDatDichVu_Click(object sender, EventArgs e)
@@ -767,11 +792,14 @@ namespace QuanLyTiecCuoiUI
             if (!CheckRightTienDatCoc(txtDonGiaDatDichVu.Text))
             {
                 MessageBox.Show("Đơn giá đặt dịch vụ phải là bội số của 500 đồng", "Thông báo");
+                txtDonGiaDatDichVu.Focus();
+                txtDonGiaDatDichVu.SelectAll();
+
                 return;
             }
 
             //Add chưa có mã tiệc cưới
-            if (txtDonGiaDatDichVu.Text == string.Empty) 
+            if (txtDonGiaDatDichVu.Text == string.Empty)
                 txtDonGiaDatDichVu.Text = lblDonGiaDichVu.Text.Substring(0, lblDonGiaDichVu.Text.Length - 4);
             if (txtSoLuongDichVuDat.Text == "")
                 txtSoLuongDichVuDat.Text = "1";
@@ -831,7 +859,7 @@ namespace QuanLyTiecCuoiUI
                     txtTienDatCoc.Text = TienDatCocToiThieu.ToString();
                     txtTienDatCoc.Focus();
                     MessageBox.Show("Lập phiếu đặt dịch vụ thành công", "Thông báo");
-                }            
+                }
             }
             else
                 MessageBox.Show("Đề nghị thêm dịch vụ trước khi tạo phiếu", "Thông báo");
@@ -869,7 +897,7 @@ namespace QuanLyTiecCuoiUI
 
                     MessageBox.Show("Hủy thành công", "Thông báo");
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     return;
                 }
@@ -902,7 +930,7 @@ namespace QuanLyTiecCuoiUI
                 txtDonGiaYeuCau.Text = dtMonAn.Rows[index][2].ToString();
                 toolTipInfor.SetToolTip(ptrMonAn, dtMonAn.Rows[index][4].ToString());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -953,11 +981,14 @@ namespace QuanLyTiecCuoiUI
             if (!CheckRightTienDatCoc(txtDonGiaYeuCau.Text))
             {
                 MessageBox.Show("Đơn giá đặt món ăn phải là bội số của 500 đồng", "Thông báo");
+                txtDonGiaYeuCau.Focus();
+                txtDonGiaYeuCau.SelectAll();
                 return;
             }
             if (txtSoLuongBan.Text == "")
             {
                 MessageBox.Show("Số lượng bàn không được để trống", "Thông báo");
+                txtSoLuongBan.Focus();
                 return;
             }
             int index = cboDanhSachMonAn.SelectedIndex;
@@ -987,7 +1018,7 @@ namespace QuanLyTiecCuoiUI
                     lstMonAnInsert.Add(monan.MaMonAn);
                     InsertNewMonAn(monan);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     return;
                 }
@@ -999,9 +1030,10 @@ namespace QuanLyTiecCuoiUI
         private void btnLapPhieuDatBan_Click(object sender, EventArgs e)
         {
             //state default
-            if (txtSoLuongBan.Text =="0")
+            if (txtSoLuongBan.Text == "0")
             {
                 MessageBox.Show("Bạn phải nhập số lượng bàn và số lượng bàn dự trữ đầy đủ", "Thông báo");
+                txtSoLuongBan.Focus();
                 return;
             }
             //state của số bàn và số bàn dự trữ lớn hơn số lượng dự kiến
@@ -1011,23 +1043,27 @@ namespace QuanLyTiecCuoiUI
                 soban = Int32.Parse(txtSoLuongBan.Text);
                 sobandutru = Int32.Parse(txtSoLuongBanDuTru.Text);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 soban = SoLuongBanToiDa;
                 sobandutru = 0;
             }
-            
+
 
             //Check số bàn đặt thực tế
             if (soban > SoLuongBanToiDa)
             {
                 MessageBox.Show("Số lượng bàn đặt thực tế và dự trữ phải nhỏ hơn số lượng bàn tối đa của sảnh (" + SoLuongBanToiDa.ToString() + ")", "Thông báo");
+                txtSoLuongBan.Focus();
+                txtSoLuongBan.SelectAll();
                 return;
             }
             //Check số bàn dự trữ
             if (soban + sobandutru > SoLuongBanToiDa)
             {
                 MessageBox.Show("Số lượng bàn đặt thực tế và dự trữ phải nhỏ hơn số lượng bàn tối đa của sảnh (" + SoLuongBanToiDa.ToString() + ")", "Thông báo");
+                txtSoLuongBan.Focus();
+                txtSoLuongBan.SelectAll();
                 return;
             }
             //Check đơn giá bàn
@@ -1044,7 +1080,7 @@ namespace QuanLyTiecCuoiUI
                 {
                     if (sum < Convert.ToDecimal(lblGiaSanh.Text))
                     {
-                        MessageBox.Show("Đơn giá bàn thấp hơn đơn giá bàn tối thiểu của sảnh là : " + lblGiaSanh.Text);
+                        MessageBox.Show("Đơn giá bàn thấp hơn đơn giá bàn tối thiểu của sảnh " + lblGiaSanh.Text + ". Vui thêm món vào.");
                         return;
                     }
                     this.Size = new Size(530, 570);
@@ -1118,7 +1154,7 @@ namespace QuanLyTiecCuoiUI
 
                     MessageBox.Show("Hủy thành công", "Thông báo");
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     return;
                 }

@@ -845,7 +845,21 @@ namespace QuanLyTiecCuoiUI
 
         private void txtDienThoai_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar);
+            //first keys
+            if ((sender as TextBox).SelectionStart == 0)
+            {
+                e.Handled = (e.KeyChar == (char)Keys.Space);
+                //first key = 0
+                if (e.KeyChar != (char)Keys.D0)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void btnChonMon_Click(object sender, EventArgs e)

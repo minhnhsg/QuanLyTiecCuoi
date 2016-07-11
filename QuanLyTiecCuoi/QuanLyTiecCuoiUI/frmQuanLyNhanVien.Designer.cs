@@ -466,9 +466,19 @@
             // 
             // dgvDanhSachNhanVien
             // 
+            this.dgvDanhSachNhanVien.AllowUserToAddRows = false;
+            this.dgvDanhSachNhanVien.AllowUserToDeleteRows = false;
+            this.dgvDanhSachNhanVien.AllowUserToResizeRows = false;
+            this.dgvDanhSachNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDanhSachNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDanhSachNhanVien.EnableHeadersVisualStyles = false;
             this.dgvDanhSachNhanVien.Location = new System.Drawing.Point(30, 396);
+            this.dgvDanhSachNhanVien.MultiSelect = false;
             this.dgvDanhSachNhanVien.Name = "dgvDanhSachNhanVien";
+            this.dgvDanhSachNhanVien.ReadOnly = true;
+            this.dgvDanhSachNhanVien.RowHeadersVisible = false;
+            this.dgvDanhSachNhanVien.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
+            this.dgvDanhSachNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDanhSachNhanVien.Size = new System.Drawing.Size(627, 150);
             this.dgvDanhSachNhanVien.TabIndex = 9;
             this.dgvDanhSachNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachNhanVien_CellClick);

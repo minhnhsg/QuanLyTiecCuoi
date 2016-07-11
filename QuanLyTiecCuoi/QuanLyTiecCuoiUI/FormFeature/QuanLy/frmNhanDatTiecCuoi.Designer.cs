@@ -375,6 +375,7 @@
             // txtTienDatCoc
             // 
             this.txtTienDatCoc.Location = new System.Drawing.Point(145, 178);
+            this.txtTienDatCoc.MaxLength = 18;
             this.txtTienDatCoc.Name = "txtTienDatCoc";
             this.txtTienDatCoc.Size = new System.Drawing.Size(215, 23);
             this.txtTienDatCoc.TabIndex = 19;
@@ -488,6 +489,7 @@
             // 
             this.txtDienThoai.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtDienThoai.Location = new System.Drawing.Point(105, 79);
+            this.txtDienThoai.MaxLength = 12;
             this.txtDienThoai.Name = "txtDienThoai";
             this.txtDienThoai.Size = new System.Drawing.Size(255, 23);
             this.txtDienThoai.TabIndex = 24;
@@ -497,6 +499,7 @@
             // 
             this.txtTenCoDau.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTenCoDau.Location = new System.Drawing.Point(105, 51);
+            this.txtTenCoDau.MaxLength = 100;
             this.txtTenCoDau.Name = "txtTenCoDau";
             this.txtTenCoDau.Size = new System.Drawing.Size(255, 23);
             this.txtTenCoDau.TabIndex = 23;
@@ -506,6 +509,7 @@
             // 
             this.txtTenChuRe.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTenChuRe.Location = new System.Drawing.Point(105, 24);
+            this.txtTenChuRe.MaxLength = 100;
             this.txtTenChuRe.Name = "txtTenChuRe";
             this.txtTenChuRe.Size = new System.Drawing.Size(255, 23);
             this.txtTenChuRe.TabIndex = 22;
@@ -641,6 +645,7 @@
             // txtDonGiaDatDichVu
             // 
             this.txtDonGiaDatDichVu.Location = new System.Drawing.Point(144, 100);
+            this.txtDonGiaDatDichVu.MaxLength = 18;
             this.txtDonGiaDatDichVu.Name = "txtDonGiaDatDichVu";
             this.txtDonGiaDatDichVu.Size = new System.Drawing.Size(124, 23);
             this.txtDonGiaDatDichVu.TabIndex = 25;
@@ -670,6 +675,7 @@
             // txtSoLuongDichVuDat
             // 
             this.txtSoLuongDichVuDat.Location = new System.Drawing.Point(144, 148);
+            this.txtSoLuongDichVuDat.MaxLength = 9;
             this.txtSoLuongDichVuDat.Name = "txtSoLuongDichVuDat";
             this.txtSoLuongDichVuDat.Size = new System.Drawing.Size(124, 23);
             this.txtSoLuongDichVuDat.TabIndex = 6;
@@ -820,6 +826,7 @@
             // txtDonGiaYeuCau
             // 
             this.txtDonGiaYeuCau.Location = new System.Drawing.Point(144, 91);
+            this.txtDonGiaYeuCau.MaxLength = 18;
             this.txtDonGiaYeuCau.Name = "txtDonGiaYeuCau";
             this.txtDonGiaYeuCau.Size = new System.Drawing.Size(124, 23);
             this.txtDonGiaYeuCau.TabIndex = 6;
@@ -894,6 +901,7 @@
             // txtSoLuongBanDuTru
             // 
             this.txtSoLuongBanDuTru.Location = new System.Drawing.Point(147, 52);
+            this.txtSoLuongBanDuTru.MaxLength = 8;
             this.txtSoLuongBanDuTru.Name = "txtSoLuongBanDuTru";
             this.txtSoLuongBanDuTru.Size = new System.Drawing.Size(100, 23);
             this.txtSoLuongBanDuTru.TabIndex = 3;
@@ -904,6 +912,7 @@
             // txtSoLuongBan
             // 
             this.txtSoLuongBan.Location = new System.Drawing.Point(147, 20);
+            this.txtSoLuongBan.MaxLength = 8;
             this.txtSoLuongBan.Name = "txtSoLuongBan";
             this.txtSoLuongBan.Size = new System.Drawing.Size(100, 23);
             this.txtSoLuongBan.TabIndex = 2;
