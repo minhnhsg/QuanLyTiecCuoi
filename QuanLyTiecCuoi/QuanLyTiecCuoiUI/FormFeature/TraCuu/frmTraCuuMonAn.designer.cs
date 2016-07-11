@@ -237,6 +237,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmTraCuuMonAn";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TRA CỨU MÓN ĂN";
             this.Load += new System.EventHandler(this.frmTraCuuMonAn_Load);

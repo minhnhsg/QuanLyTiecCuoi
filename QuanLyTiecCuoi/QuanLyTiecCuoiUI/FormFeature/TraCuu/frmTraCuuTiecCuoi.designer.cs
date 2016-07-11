@@ -201,6 +201,7 @@
             this.MinimizeBox = false;
             this.Name = "frmTraCuuTiecCuoi";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tra Cứu Tiệc Cưới";
             this.Load += new System.EventHandler(this.frmTraCuuTiecCuoi_Load);
