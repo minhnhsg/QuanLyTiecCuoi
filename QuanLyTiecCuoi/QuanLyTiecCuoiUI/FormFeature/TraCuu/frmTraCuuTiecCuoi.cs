@@ -59,7 +59,7 @@ namespace QuanLyTiecCuoiUI
         {
             if (InputIsNull())
             {
-                MessageBox.Show("Từ khóa không hợp lệ!");
+                MessageBox.Show("Vui lòng nhập từ khóa!");
             }
             else
             {
