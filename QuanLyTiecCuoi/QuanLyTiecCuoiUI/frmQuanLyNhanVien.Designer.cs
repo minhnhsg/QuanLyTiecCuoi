@@ -347,7 +347,7 @@
             this.btnThemNhanVien.FlatAppearance.BorderSize = 2;
             this.btnThemNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemNhanVien.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnThemNhanVien.Image = global::QuanLyTiecCuoiUI.Properties.Resources.Actions_insert_horizontal_rule_icon;
+            this.btnThemNhanVien.Image = global::QuanLyTiecCuoiUI.Properties.Resources.insert_icon;
             this.btnThemNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnThemNhanVien.Location = new System.Drawing.Point(133, 329);
             this.btnThemNhanVien.Name = "btnThemNhanVien";
@@ -365,7 +365,7 @@
             this.btnHuy.FlatAppearance.BorderSize = 2;
             this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHuy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnHuy.Image = global::QuanLyTiecCuoiUI.Properties.Resources.delete_file_icon;
+            this.btnHuy.Image = global::QuanLyTiecCuoiUI.Properties.Resources.cancel_icon;
             this.btnHuy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHuy.Location = new System.Drawing.Point(557, 329);
             this.btnHuy.Name = "btnHuy";
@@ -383,7 +383,7 @@
             this.btnLuu.FlatAppearance.BorderSize = 2;
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLuu.Image = global::QuanLyTiecCuoiUI.Properties.Resources.Save_as_icon;
+            this.btnLuu.Image = global::QuanLyTiecCuoiUI.Properties.Resources.save_icon;
             this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLuu.Location = new System.Drawing.Point(451, 329);
             this.btnLuu.Name = "btnLuu";
@@ -401,7 +401,7 @@
             this.btnSuaNhanVien.FlatAppearance.BorderSize = 2;
             this.btnSuaNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuaNhanVien.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSuaNhanVien.Image = global::QuanLyTiecCuoiUI.Properties.Resources.edit_validated_icon;
+            this.btnSuaNhanVien.Image = global::QuanLyTiecCuoiUI.Properties.Resources.edit_icon;
             this.btnSuaNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSuaNhanVien.Location = new System.Drawing.Point(239, 329);
             this.btnSuaNhanVien.Name = "btnSuaNhanVien";
@@ -419,7 +419,7 @@
             this.btnXoaNhanVien.FlatAppearance.BorderSize = 2;
             this.btnXoaNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoaNhanVien.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnXoaNhanVien.Image = global::QuanLyTiecCuoiUI.Properties.Resources.Alarm_Error_icon;
+            this.btnXoaNhanVien.Image = global::QuanLyTiecCuoiUI.Properties.Resources.delete_icon;
             this.btnXoaNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnXoaNhanVien.Location = new System.Drawing.Point(345, 329);
             this.btnXoaNhanVien.Name = "btnXoaNhanVien";

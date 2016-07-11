@@ -143,11 +143,13 @@
             // 
             // btnHuyTatCa
             // 
+            this.btnHuyTatCa.Image = global::QuanLyTiecCuoiUI.Properties.Resources.cancel_icon;
+            this.btnHuyTatCa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHuyTatCa.Location = new System.Drawing.Point(391, 493);
             this.btnHuyTatCa.Name = "btnHuyTatCa";
             this.btnHuyTatCa.Size = new System.Drawing.Size(100, 30);
             this.btnHuyTatCa.TabIndex = 22;
-            this.btnHuyTatCa.Text = "Hủy";
+            this.btnHuyTatCa.Text = "     Hủy";
             this.btnHuyTatCa.UseVisualStyleBackColor = true;
             this.btnHuyTatCa.Click += new System.EventHandler(this.btnHuyTatCa_Click);
             // 
@@ -202,11 +204,13 @@
             // 
             // btnDatTiec
             // 
+            this.btnDatTiec.Image = global::QuanLyTiecCuoiUI.Properties.Resources.edit_icon;
+            this.btnDatTiec.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDatTiec.Location = new System.Drawing.Point(9, 22);
             this.btnDatTiec.Name = "btnDatTiec";
             this.btnDatTiec.Size = new System.Drawing.Size(100, 30);
             this.btnDatTiec.TabIndex = 23;
-            this.btnDatTiec.Text = "Đặt tiệc";
+            this.btnDatTiec.Text = "     Đặt tiệc";
             this.btnDatTiec.UseVisualStyleBackColor = true;
             this.btnDatTiec.Click += new System.EventHandler(this.btnDatTiec_Click);
             // 

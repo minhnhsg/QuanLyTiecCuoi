@@ -145,7 +145,7 @@
   <data name="Sanh_QuanLySanh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sanh_QuanLySanh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Actions-insert-horizontal-rule-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="insert_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Actions-insert-horizontal-rule-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="capella-logo2__" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -160,7 +160,7 @@
   <data name="button_QuyDinh_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_QuyDinh_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Alarm-Error-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="delete_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Alarm-Error-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="staff" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -169,7 +169,7 @@
   <data name="button_QuyDinh_Default" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_QuyDinh_Default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Save-as-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="save_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Save-as-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="swap" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -184,7 +184,7 @@
   <data name="button_tracuu_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_tracuu_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="delete-file-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="cancel_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete-file-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -310,7 +310,7 @@
   <data name="loupe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loupe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit-validated-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="edit_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit-validated-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HoverQuyDInh" type="System.Resources.ResXFileRef, System.Windows.Forms">

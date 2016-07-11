@@ -83,26 +83,6 @@ namespace QuanLyTiecCuoiUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Actions_insert_horizontal_rule_icon {
-            get {
-                object obj = ResourceManager.GetObject("Actions-insert-horizontal-rule-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Alarm_Error_icon {
-            get {
-                object obj = ResourceManager.GetObject("Alarm-Error-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap background_repeat {
             get {
                 object obj = ResourceManager.GetObject("background_repeat", resourceCulture);
@@ -303,6 +283,16 @@ namespace QuanLyTiecCuoiUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cancel_icon {
+            get {
+                object obj = ResourceManager.GetObject("cancel_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap capella_logo2__ {
             get {
                 object obj = ResourceManager.GetObject("capella-logo2__", resourceCulture);
@@ -343,9 +333,9 @@ namespace QuanLyTiecCuoiUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap delete_file_icon {
+        internal static System.Drawing.Bitmap delete_icon {
             get {
-                object obj = ResourceManager.GetObject("delete-file-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("delete_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -373,9 +363,9 @@ namespace QuanLyTiecCuoiUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap edit_validated_icon {
+        internal static System.Drawing.Bitmap edit_icon {
             get {
-                object obj = ResourceManager.GetObject("edit-validated-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("edit_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -486,6 +476,16 @@ namespace QuanLyTiecCuoiUI.Properties {
         internal static System.Drawing.Bitmap info {
             get {
                 object obj = ResourceManager.GetObject("info", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap insert_icon {
+            get {
+                object obj = ResourceManager.GetObject("insert_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -743,9 +743,9 @@ namespace QuanLyTiecCuoiUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Save_as_icon {
+        internal static System.Drawing.Bitmap save_icon {
             get {
-                object obj = ResourceManager.GetObject("Save-as-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("save_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
