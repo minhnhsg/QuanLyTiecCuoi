@@ -16,6 +16,7 @@ namespace QuanLyTiecCuoiUI
     {
         public string mTenMonAnSelected = "-";
         public string mMaMonAnSelected;
+        private bool selectedMonAn = false;
         private DTO_TraCuu traCuu = new DTO_TraCuu();
 
         public frmTraCuuMonAn()
@@ -73,6 +74,7 @@ namespace QuanLyTiecCuoiUI
         private void dgvDanhSachMonAn_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvDanhSachMonAn.ClearSelection();
+            selectedMonAn = false;
             dgvDanhSachMonAn.Columns["MaMonAn"].Visible = false;
             dgvDanhSachMonAn.Columns["HinhAnh"].Visible = false;
             dgvDanhSachMonAn.Columns["GhiChu"].Visible = false;
@@ -87,6 +89,7 @@ namespace QuanLyTiecCuoiUI
                 return;
             }
 
+            selectedMonAn = true;
             int row = e.RowIndex;
             lbTenMonAn.Text = dgvDanhSachMonAn["TenMonAn", row].Value.ToString();
             lbDonGia.Text = dgvDanhSachMonAn["DonGia", row].Value.ToString() + " VNĐ";
@@ -100,6 +103,7 @@ namespace QuanLyTiecCuoiUI
         private void dgvKetQuaTimKiem_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvKetQuaTimKiem.ClearSelection();
+            selectedMonAn = false;
             dgvKetQuaTimKiem.Columns["MaMonAn"].Visible = false;
             dgvKetQuaTimKiem.Columns["HinhAnh"].Visible = false;
             dgvKetQuaTimKiem.Columns["GhiChu"].Visible = false;
@@ -114,6 +118,7 @@ namespace QuanLyTiecCuoiUI
                 return;
             }
 
+            selectedMonAn = true;
             int row = e.RowIndex;
             lbTenMonAn.Text = dgvKetQuaTimKiem["TenMonAn", row].Value.ToString();
             lbDonGia.Text = dgvKetQuaTimKiem["DonGia", row].Value.ToString() + " VNĐ";
@@ -126,8 +131,11 @@ namespace QuanLyTiecCuoiUI
         private void btnChon_Click(object sender, EventArgs e)
         {
             //this.mMaMonAnSelected (trên dgvDanhSachMonAn và dgvKetQuaTimKiem)
-            this.mTenMonAnSelected = lbTenMonAn.Text;
-            this.Close();
+            if (selectedMonAn)
+            {
+                this.mTenMonAnSelected = lbTenMonAn.Text;
+                this.Close();
+            }
         }
     }
 }

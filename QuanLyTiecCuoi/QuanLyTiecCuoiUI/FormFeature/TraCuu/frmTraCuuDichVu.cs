@@ -16,6 +16,7 @@ namespace QuanLyTiecCuoiUI
     {
         public string mTenDichVuSelected = "-";
         public string mMaDichVuSelected;
+        private bool selectedDichVu = false;
         private DTO_TraCuu traCuu = new DTO_TraCuu();
 
         public frmTraCuuDichVu()
@@ -75,6 +76,7 @@ namespace QuanLyTiecCuoiUI
         private void dgvDanhSachDichVu_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvDanhSachDichVu.ClearSelection();
+            selectedDichVu = false;
             dgvDanhSachDichVu.Columns["MaDichVu"].Visible = false;
             dgvDanhSachDichVu.Columns["HinhAnh"].Visible = false;
             dgvDanhSachDichVu.Columns["GhiChu"].Visible = false;
@@ -89,6 +91,7 @@ namespace QuanLyTiecCuoiUI
                 return;
             }
 
+            selectedDichVu = true;
             int row = e.RowIndex;
             lbTenDichVu.Text = dgvDanhSachDichVu["TenDichVu", row].Value.ToString();
             lbDonGia.Text = dgvDanhSachDichVu["DonGia", row].Value.ToString() + " VNĐ";
@@ -103,6 +106,7 @@ namespace QuanLyTiecCuoiUI
         private void dgvKetQuaTimKiem_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvKetQuaTimKiem.ClearSelection();
+            selectedDichVu = false;
             dgvKetQuaTimKiem.Columns["MaDichVu"].Visible = false;
             dgvKetQuaTimKiem.Columns["HinhAnh"].Visible = false;
             dgvKetQuaTimKiem.Columns["GhiChu"].Visible = false;
@@ -116,6 +120,7 @@ namespace QuanLyTiecCuoiUI
                 return;
             }
 
+            selectedDichVu = true;
             int row = e.RowIndex;
             lbTenDichVu.Text = dgvKetQuaTimKiem["TenDichVu", row].Value.ToString();
             lbDonGia.Text = dgvKetQuaTimKiem["DonGia", row].Value.ToString() + " VNĐ";
@@ -129,8 +134,11 @@ namespace QuanLyTiecCuoiUI
         private void btnChon_Click(object sender, EventArgs e)
         {
             //this.mMaDichVuSelected (trên dgvDanhSachDichVu và dgvKetQuaTimKiem)
-            this.mTenDichVuSelected = lbTenDichVu.Text;
-            this.Close();
+            if (selectedDichVu)
+            {
+                this.mTenDichVuSelected = lbTenDichVu.Text;
+                this.Close();
+            }
         }
     }
 }

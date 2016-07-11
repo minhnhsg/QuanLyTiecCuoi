@@ -1247,5 +1247,31 @@ namespace QuanLyTiecCuoiUI
 
         #endregion
 
+        #region Phúc thêm vào: tra cứu món ăn cho phiếu đặt bàn, tra cứu dịch vụ cho phiếu dịch vụ
+        private void linkTraCuuMonAn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmTraCuuMonAn formTCMA = new frmTraCuuMonAn(true);
+            formTCMA.ShowDialog();
+
+            if (formTCMA.mTenMonAnSelected != "-")
+            {
+                // Lay ve MaMonAn
+                cboDanhSachMonAn.SelectedValue = formTCMA.mMaMonAnSelected;
+            }
+        }
+
+        private void linkTraCuuDichVu_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmTraCuuDichVu formTCDV = new frmTraCuuDichVu(true);
+            formTCDV.ShowDialog();
+
+            if (formTCDV.mTenDichVuSelected != "-")
+            {
+                // Lay ve MaMonAn
+                cboDanhSachDichVu.SelectedValue = formTCDV.mMaDichVuSelected;
+            }
+        }
+        #endregion
+
     }
 }
