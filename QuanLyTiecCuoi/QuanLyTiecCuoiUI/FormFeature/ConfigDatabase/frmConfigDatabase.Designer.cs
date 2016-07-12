@@ -99,6 +99,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmConfigDatabase";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Config Database";
             this.Load += new System.EventHandler(this.frmConfigDatabase_Load);
