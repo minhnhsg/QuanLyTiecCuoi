@@ -52,7 +52,7 @@
             // 
             this.lblTenQuyDinh.AutoSize = true;
             this.lblTenQuyDinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenQuyDinh.Location = new System.Drawing.Point(15, 39);
+            this.lblTenQuyDinh.Location = new System.Drawing.Point(11, 19);
             this.lblTenQuyDinh.Name = "lblTenQuyDinh";
             this.lblTenQuyDinh.Size = new System.Drawing.Size(96, 17);
             this.lblTenQuyDinh.TabIndex = 15;
@@ -63,7 +63,7 @@
             // 
             this.lblGiaTri.AutoSize = true;
             this.lblGiaTri.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGiaTri.Location = new System.Drawing.Point(200, 39);
+            this.lblGiaTri.Location = new System.Drawing.Point(196, 19);
             this.lblGiaTri.Name = "lblGiaTri";
             this.lblGiaTri.Size = new System.Drawing.Size(51, 17);
             this.lblGiaTri.TabIndex = 16;
@@ -72,7 +72,7 @@
             // cbApDung
             // 
             this.cbApDung.AutoSize = true;
-            this.cbApDung.Location = new System.Drawing.Point(357, 72);
+            this.cbApDung.Location = new System.Drawing.Point(333, 52);
             this.cbApDung.Name = "cbApDung";
             this.cbApDung.Size = new System.Drawing.Size(15, 14);
             this.cbApDung.TabIndex = 20;
@@ -80,7 +80,7 @@
             // 
             // btnEditQuyDinh
             // 
-            this.btnEditQuyDinh.Location = new System.Drawing.Point(446, 63);
+            this.btnEditQuyDinh.Location = new System.Drawing.Point(409, 39);
             this.btnEditQuyDinh.Name = "btnEditQuyDinh";
             this.btnEditQuyDinh.Size = new System.Drawing.Size(94, 30);
             this.btnEditQuyDinh.TabIndex = 18;
@@ -90,7 +90,7 @@
             // 
             // txtGiaTri
             // 
-            this.txtGiaTri.Location = new System.Drawing.Point(182, 66);
+            this.txtGiaTri.Location = new System.Drawing.Point(178, 46);
             this.txtGiaTri.Name = "txtGiaTri";
             this.txtGiaTri.Size = new System.Drawing.Size(102, 23);
             this.txtGiaTri.TabIndex = 17;
@@ -99,7 +99,7 @@
             // 
             this.lblApDung.AutoSize = true;
             this.lblApDung.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApDung.Location = new System.Drawing.Point(342, 39);
+            this.lblApDung.Location = new System.Drawing.Point(318, 19);
             this.lblApDung.Name = "lblApDung";
             this.lblApDung.Size = new System.Drawing.Size(61, 17);
             this.lblApDung.TabIndex = 21;
@@ -115,16 +115,16 @@
             this.groupBox1.Controls.Add(this.lblGiaTri);
             this.groupBox1.Controls.Add(this.lblTenQuyDinh);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(35, 25);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(600, 144);
+            this.groupBox1.Size = new System.Drawing.Size(527, 90);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Quy định";
             // 
             // txtTenQuyDinh
             // 
-            this.txtTenQuyDinh.Location = new System.Drawing.Point(18, 66);
+            this.txtTenQuyDinh.Location = new System.Drawing.Point(14, 46);
             this.txtTenQuyDinh.Name = "txtTenQuyDinh";
             this.txtTenQuyDinh.Size = new System.Drawing.Size(131, 23);
             this.txtTenQuyDinh.TabIndex = 22;
@@ -133,11 +133,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 195);
+            this.ClientSize = new System.Drawing.Size(548, 116);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmThayDoiQuyDinh";
-            this.Text = "Quản Lý Quy Định";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "QUẢN LÝ QUY ĐỊNH";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

@@ -125,9 +125,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(32, 273);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 17);
+            this.label2.Size = new System.Drawing.Size(120, 17);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Tổng số tiệc cưới";
+            this.label2.Text = "Tổng số tiệc cưới:";
             // 
             // lblTongDoanhThu
             // 
@@ -173,6 +173,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(700, 450);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(700, 450);
             this.Name = "frmLapBaoCaoThang";
             this.ShowIcon = false;

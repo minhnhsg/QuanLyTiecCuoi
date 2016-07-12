@@ -88,11 +88,11 @@ namespace QuanLyTiecCuoiUI
         private void btnLapHoaDon_Click(object sender, EventArgs e)
         {
 
-            if (currentDate.Month == dtpNgayDaiTiec.Value.Month && currentDate.Day < dtpNgayDaiTiec.Value.Day)
-            {
-                MessageBox.Show("Tiệc cưới này chưa được tổ chức nên bạn không thể lập hóa đơn thanh toán. ", "Thông báo", MessageBoxButtons.OK);
-                return;
-            }
+            //if (currentDate.Month == dtpNgayDaiTiec.Value.Month && currentDate.Day < dtpNgayDaiTiec.Value.Day)
+            //{
+            //    MessageBox.Show("Tiệc cưới này chưa được tổ chức nên bạn không thể lập hóa đơn thanh toán. ", "Thông báo", MessageBoxButtons.OK);
+            //    return;
+            //}
 
             if (String.IsNullOrWhiteSpace(mTenChuRe.Trim()) && String.IsNullOrWhiteSpace(mTenCoDau.Trim()))
             {
@@ -101,8 +101,6 @@ namespace QuanLyTiecCuoiUI
             }
 
             //set up so ngay tre
-
-
             tiecCuoiInfo = BUS.BUS_LapHoaDonThanhToan.GetTiecCuoi(mTenChuRe, mTenCoDau, mNgayDaiTiec);
             if (tiecCuoiInfo != null)
             {
@@ -118,7 +116,7 @@ namespace QuanLyTiecCuoiUI
                     DataTable dataTableChiTietDichVu = BUS.BUS_LapHoaDonThanhToan.GetChiTietDichVu(tiecCuoiInfo.MaTiecCuoi);
                     dgvCacDichVu.DataSource = dataTableChiTietDichVu;
 
-                   
+
                     bool isLapHoaDon = BUS.BUS_LapHoaDonThanhToan.IsLapHoaDonThanhToan(tiecCuoiInfo.MaTiecCuoi);
 
                     if (isLapHoaDon)
@@ -148,10 +146,11 @@ namespace QuanLyTiecCuoiUI
                                 tongTienDaThanhToan += hoadon.TienDaThanhToan;
                             }
 
-                            String[] strNgayDaiTiec = latestHoaDon.NgayThanhToan.Split('/');
-                            DateTime ngayThanhToanGanNhat = new DateTime(int.Parse(strNgayDaiTiec[2]), int.Parse(strNgayDaiTiec[0]), int.Parse(strNgayDaiTiec[1]));
-                            soNgayTre = currentDate.Subtract(ngayThanhToanGanNhat).Days;
 
+
+                            String[] strNgayDaiTiec = latestHoaDon.NgayThanhToan.Split('-');
+                            DateTime ngayThanhToanGanNhat = new DateTime(int.Parse(strNgayDaiTiec[2]), int.Parse(strNgayDaiTiec[0]), int.Parse(strNgayDaiTiec[1]));
+                            soNgayTre = Math.Max(currentDate.Subtract(ngayThanhToanGanNhat).Days, 0);
 
                             lblNTTInfo.Text = "Ngày thanh toán gần đây:";
                             lblNgayThanhToan.Text = ngayThanhToanGanNhat.ToString("dd/MM/yyyy");
@@ -189,9 +188,9 @@ namespace QuanLyTiecCuoiUI
                         lblConLai.Text = ConvertStringToCurrency(soTienConLai);
 
 
-                        String[] strNgayDaiTiec = mNgayDaiTiec.Split('/');
+                        String[] strNgayDaiTiec = mNgayDaiTiec.Split('-');
                         DateTime ngayDaiTiecDatetime = new DateTime(int.Parse(strNgayDaiTiec[2]), int.Parse(strNgayDaiTiec[0]), int.Parse(strNgayDaiTiec[1]));
-                        soNgayTre = currentDate.Subtract(ngayDaiTiecDatetime).Days;
+                        soNgayTre = Math.Max(currentDate.Subtract(ngayDaiTiecDatetime).Days, 0);
                         lblSoNgayTre.Text = soNgayTre.ToString();
                         lblResult.Text = "";
 
@@ -199,7 +198,7 @@ namespace QuanLyTiecCuoiUI
                         dgvMonAn.DataSource = chiTietPhieuDatBan;
                         dgvMonAn.Columns["TenMonAn"].HeaderText = "Tên món ăn";
                         dgvMonAn.Columns["DonGia"].HeaderText = "Đơn giá (VND)";
-                        dgvMonAn.Columns["SoLuong"].HeaderText = "Số lượng";
+
                     }
                 }
 
@@ -296,7 +295,7 @@ namespace QuanLyTiecCuoiUI
                 hoaDon.TongTienDichVu = tongTienDichVu;
                 hoaDon.TongTienHoaDon = tongTienHoaDon;
                 hoaDon.ConLai = tongTienTra - soTienTra;
-                
+
 
                 if (hoaDon.ConLai < 0)
                 {
@@ -310,7 +309,7 @@ namespace QuanLyTiecCuoiUI
                 else //TODO Con No
                     tiecCuoiInfo.TinhTrangTiec = 2;
 
-                decimal soTienToiThieu = (decimal)( tongTienTra / 2);
+                decimal soTienToiThieu = (decimal)(tongTienTra / 2);
                 if (soTienTra < soTienToiThieu)
                 {
                     MessageBox.Show("Bạn phải trả lớn hơn hoặc bằng 50% giá trị tổng tiền thanh toán");
@@ -348,7 +347,7 @@ namespace QuanLyTiecCuoiUI
                         bcn.Ngay = dtpNgayDaiTiec.Value.Day;
                         bcn.SoLuongTiecCuoi = 1;
                         bcn.DoanhThu = soTienDatCoc + soTienTra;
-                        bcn.TiLe = 1;
+                        bcn.TiLe = Math.Round(bcn.DoanhThu / bcn.SoLuongTiecCuoi);
                         bool result = BUS.BUS_BaoCaoNgay.InsertBaoCaoNgay(bcn);
                         Console.WriteLine(result);
                     }

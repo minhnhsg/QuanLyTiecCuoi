@@ -92,7 +92,7 @@ namespace QuanLyTiecCuoiUI
                 dgvBaoCaoChiTiet.Columns["SoLuongTiecCuoi"].HeaderText = "Số lượng tiệc cưới";
                 dgvBaoCaoChiTiet.Columns["DoanhThu"].HeaderText = "Doanh thu";
                 dgvBaoCaoChiTiet.Columns["TiLe"].HeaderText = "Tỉ lệ";
-                dgvBaoCaoChiTiet.Columns["DoanhThu"].DefaultCellStyle.Format = "c";
+                
             }
             else
             {
@@ -104,7 +104,9 @@ namespace QuanLyTiecCuoiUI
 
         private string ConvertStringToCurrency(decimal value)
         {
-            return String.Format("{0:c}", value);
+            //return String.Format("{0:c}", value);
+            var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+            return String.Format(info, "{0:c}", value);
         }
 
        

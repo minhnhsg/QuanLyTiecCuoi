@@ -99,7 +99,7 @@ namespace DAO
 
         public static DataTable GetChiTietDatBan(int maPhieuDatBan)
         {
-            String sqlCommand = String.Format(@"SELECT MA.TenMonAn AS TenMonAn, CT.SoLuong AS SoLuong, CT.DonGia AS DonGia  FROM CT_PHIEUDATBAN AS CT INNER JOIN MONAN AS MA ON CT.MaMonAn = MA.MaMonAn WHERE CT.MaPhieuDatBan = {0}", maPhieuDatBan);
+            String sqlCommand = String.Format(@"SELECT MA.TenMonAn AS TenMonAn, CT.DonGia AS DonGia  FROM CT_PHIEUDATBAN AS CT INNER JOIN MONAN AS MA ON CT.MaMonAn = MA.MaMonAn WHERE CT.MaPhieuDatBan = {0}", maPhieuDatBan);
             return DatabaseHelper.GetData(sqlCommand);
         }
 

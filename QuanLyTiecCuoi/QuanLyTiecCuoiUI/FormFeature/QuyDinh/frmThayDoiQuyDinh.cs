@@ -48,6 +48,9 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuyDinh
             txtTenQuyDinh.ReadOnly = true;
             txtGiaTri.ReadOnly = true;
             cbApDung.Enabled = false;
+
+            this.Focus();
+            btnEditQuyDinh.Focus();
             
            
             DTO_ThamSo thamSo = BUS.BUS_ThamSo.GetThamSo();
@@ -120,6 +123,7 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuyDinh
             }
         }
 
+      
      
 
        
