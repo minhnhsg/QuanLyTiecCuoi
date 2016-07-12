@@ -311,7 +311,7 @@ namespace QuanLyTiecCuoiUI
 
                 //lstDanhSachMonThucDon = new ListView();
                 //lstDichVuTiecCuoi = new ListView();
-
+                IsClickedDatBan = IsClickedDichvu = false;
                 btnPhieuDatDichVu.Enabled = true;
                 btnPhieuDatBan.Enabled = true;
                 IsCreateContract = IsCreateMenu = IsCreateService = IsTakeWedding = false;
@@ -533,9 +533,11 @@ namespace QuanLyTiecCuoiUI
         #endregion
 
         #region Trạng thái form dịch vụ và món ăn
+        private bool IsClickedDatBan;
+        private bool IsClickedDichvu;
         private void btnPhieuDatBan_Click(object sender, EventArgs e)
         {
-            if (CheckStateToShow())
+            if (CheckStateToShow()) 
             {
                 //Check infor tiệc cưới đã tồn tại hay chưa
                 DTO_TiecCuoi tiec = new DTO_TiecCuoi();
@@ -556,8 +558,16 @@ namespace QuanLyTiecCuoiUI
                 SetupStateControlTiecCuoi(true);
                 pnlPhieuDichVu.Visible = false;
                 txtSoLuongBanDuTru.Text = "0";
-                if (lstMonAnInsert != null) lstMonAnInsert.Clear();
-                if (lstChiTietDatBan != null) lstChiTietDatBan.Clear();
+                if (lstMonAnInsert != null && !IsClickedDatBan)
+                {
+                    //IsClickedDatBan = true;
+                    lstMonAnInsert.Clear();
+                }
+                if (lstChiTietDatBan != null && !IsClickedDatBan)
+                {
+                    IsClickedDatBan = true;
+                    lstChiTietDatBan.Clear();
+                }
 
                 lblDonGiaDichVu.Text = dtDichVu.Rows[cboDanhSachDichVu.SelectedIndex][2].ToString() + " VNĐ";
                 txtSoLuongDichVuDat.Text = "1";
@@ -850,14 +860,14 @@ namespace QuanLyTiecCuoiUI
                     IsCreateService = true;
                     btnPhieuDatDichVu.Enabled = false;
                     SetupStateControlTiecCuoi(true);
-                    btnDatTiec.Enabled = true;
-                    txtTienDatCoc.ReadOnly = false;
+                    //btnDatTiec.Enabled = true;
+                    //txtTienDatCoc.ReadOnly = false;
 
                     //hiển thị tiền đặt cọc tối thiểu
                     decimal money = sum * 5 / 100;
                     TienDatCocToiThieu += money;
                     txtTienDatCoc.Text = TienDatCocToiThieu.ToString();
-                    txtTienDatCoc.Focus();
+                    //txtTienDatCoc.Focus();
                     MessageBox.Show("Lập phiếu đặt dịch vụ thành công", "Thông báo");
                 }
             }
@@ -885,6 +895,7 @@ namespace QuanLyTiecCuoiUI
                     txtTienDatCoc.ReadOnly = true;
 
                     //trạng thái của panel dịch vụ và món ăn 
+                    IsClickedDichvu = false;
 
                     //dịch vụ
                     txtDonGiaDatDichVu.Text = lblDonGiaDichVu.Text.Substring(0, lblDonGiaDichVu.Text.Length - 4);
@@ -1136,13 +1147,13 @@ namespace QuanLyTiecCuoiUI
                     //lstDichVuTiecCuoi = new ListView();
                     //lstDichVuInsert.Clear();
                     this.Size = new Size(530, 570);
-                    btnDatTiec.Enabled = true;
+                    //btnDatTiec.Enabled = true;
                     this.MaximumSize = this.MinimumSize = new Size(530, 570);
                     SetupStateControlTiecCuoi(false);
                     txtTienDatCoc.ReadOnly = true;
                     dtpNgayDatTiec.Enabled = false;
                     //trạng thái của panel dịch vụ và món ăn 
-
+                    IsClickedDatBan = false;
                     //dịch vụ
                     txtDonGiaDatDichVu.Text = lblDonGiaDichVu.Text.Substring(0, lblDonGiaDichVu.Text.Length - 4);
                     txtSoLuongDichVuDat.Text = "1";

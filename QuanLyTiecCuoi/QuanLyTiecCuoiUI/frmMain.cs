@@ -18,6 +18,7 @@ namespace QuanLyTiecCuoiUI
     {
         #region parameters
         private bool MiniumMenu;
+        private bool IsChange = false;
         private menuQuanLy quanly = new menuQuanLy();
         private menuTraCuu tracuu = new menuTraCuu();
         private menuBaoCao baocao = new menuBaoCao();
@@ -43,6 +44,7 @@ namespace QuanLyTiecCuoiUI
         }
         public void LoadDefautState()
         {
+            IsChange = false;
             btnCapNhatThongTinNguoiDung.Enabled = false;
             foreach (Form form in this.MdiChildren)
             {
@@ -558,7 +560,11 @@ namespace QuanLyTiecCuoiUI
             pnlThongTinTaiKhoan.Visible = false;
             pnlThongTinNhanVien.Show();
             flag = false;
-            btnCapNhatThongTinNguoiDung.Enabled = false;
+            if (!IsChange)
+            {
+                btnCapNhatThongTinNguoiDung.Enabled = false;
+                IsChange = true;
+            }
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
@@ -653,7 +659,7 @@ namespace QuanLyTiecCuoiUI
 
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
-            if (txtPasswordNguoiDung.Text == NhanVienLogin.Password)
+            if (IsChange || NhanVienLogin.Password == txtPasswordNguoiDung.Text)
             {
                 txtPasswordNguoiDung.ReadOnly = false;
                 txtPasswordNguoiDung.Text = string.Empty;
@@ -678,6 +684,8 @@ namespace QuanLyTiecCuoiUI
                 MessageBox.Show("Cập nhật mật khẩu thành công", "Thông báo");
                 NhanVienLogin.Password = txtPasswordNguoiDung.Text;
                 txtPasswordNguoiDung.ReadOnly = true;
+                btnCapNhatThongTinNguoiDung.Enabled = false;
+                IsChange = false;
             }
             else
                 MessageBox.Show("Cập nhật mật khẩu thất bại", "Thông báo");
@@ -702,6 +710,7 @@ namespace QuanLyTiecCuoiUI
             pnlThongTinNhanVien.Visible = false;
             txtPasswordNguoiDung.ReadOnly = true;
             txtPasswordNguoiDung.Text = NhanVienLogin.Password;
+            btnCapNhatThongTinNguoiDung.Enabled = false;
         }
     }
 }
