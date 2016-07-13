@@ -94,6 +94,24 @@ namespace DAO
             }
             return false;
         }
+        public static bool CheckDaLapTiecCuoi(DTO_TiecCuoi tieccuoi)
+        {
+            string sTruyVan = string.Format(@"select * from TIECCUOI where (DienThoai=N'{0}') and ((TenChuRe=N'{1}') or (TenCoDau=N'{2}')) and ((TinhTrangTiec = 1) or (TinhTrangTiec = 2))",
+                tieccuoi.DienThoai, tieccuoi.TenChuRe, tieccuoi.TenCoDau, tieccuoi.TinhTrangTiec);
+            try
+            {
+                DataTable res = DatabaseHelper.GetData(sTruyVan);
+                if (res.Rows.Count > 0)
+                {
+                    return false;
+                }
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
         public static bool InsertChiTietDatDichVu(DTO_CT_PhieuDatDichVu ctphieudatdichvu)
         {
             string sTruyVan = string.Format("Insert into CT_PHIEUDATDICHVU(MaTiecCuoi, MaDichVu, Soluong, DonGia) values({0},{1},{2},{3})",

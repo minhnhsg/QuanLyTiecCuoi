@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnTraCuuDichVu = new System.Windows.Forms.Button();
             this.btnTraCuuMonAn = new System.Windows.Forms.Button();
             this.btnTraCuuTiecCuoi = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btnTraCuuDichVu
@@ -49,6 +51,7 @@
             this.btnTraCuuDichVu.TabIndex = 5;
             this.btnTraCuuDichVu.Text = "           Tra cứu dịch vụ";
             this.btnTraCuuDichVu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip1.SetToolTip(this.btnTraCuuDichVu, "Tra cứu dịch vụ");
             this.btnTraCuuDichVu.UseVisualStyleBackColor = true;
             // 
             // btnTraCuuMonAn
@@ -67,6 +70,7 @@
             this.btnTraCuuMonAn.TabIndex = 4;
             this.btnTraCuuMonAn.Text = "           Tra cứu món ăn";
             this.btnTraCuuMonAn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip1.SetToolTip(this.btnTraCuuMonAn, "Tra cứu món ăn");
             this.btnTraCuuMonAn.UseVisualStyleBackColor = true;
             // 
             // btnTraCuuTiecCuoi
@@ -85,6 +89,7 @@
             this.btnTraCuuTiecCuoi.TabIndex = 3;
             this.btnTraCuuTiecCuoi.Text = "           Tra cứu tiệc cưới";
             this.btnTraCuuTiecCuoi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip1.SetToolTip(this.btnTraCuuTiecCuoi, "Tra cứu tiệc cưới");
             this.btnTraCuuTiecCuoi.UseVisualStyleBackColor = true;
             // 
             // menuTraCuu
@@ -107,5 +112,6 @@
         private System.Windows.Forms.Button btnTraCuuDichVu;
         private System.Windows.Forms.Button btnTraCuuMonAn;
         private System.Windows.Forms.Button btnTraCuuTiecCuoi;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

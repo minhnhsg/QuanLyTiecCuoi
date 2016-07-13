@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnLapBaoCaoThang = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btnLapBaoCaoThang
@@ -46,6 +48,7 @@
             this.btnLapBaoCaoThang.TabIndex = 4;
             this.btnLapBaoCaoThang.Text = "           Lập báo cáo tháng";
             this.btnLapBaoCaoThang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip1.SetToolTip(this.btnLapBaoCaoThang, "Lập báo cáo tháng");
             this.btnLapBaoCaoThang.UseVisualStyleBackColor = true;
             // 
             // menuBaoCao
@@ -64,5 +67,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnLapBaoCaoThang;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

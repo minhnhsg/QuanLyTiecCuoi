@@ -347,6 +347,29 @@ namespace QuanLyTiecCuoiUI
         }
         private void btnDatTiec_Click(object sender, EventArgs e)
         {
+            //Kiểm tra khách hàng nếu có tiệc cưới trước đó đã thanh toán chưa 
+            DTO_TiecCuoi check = new DTO_TiecCuoi();
+            check.TenChuRe = txtTenChuRe.Text;
+            check.TenCoDau = txtTenCoDau.Text;
+            check.DienThoai = txtDienThoai.Text;
+            if (!BUS_NhanDatTiecCuoi.CheckDaLapTiecCuoi(check))
+            {
+                MessageBox.Show("Bạn chưa thanh toán một tiệc cưới đã đặt, đề nghị thanh toán trước khi đặt thêm ", "Thông báo");
+                return;
+            }
+            //kiểm tra thông tin tiệc cưới 
+            DTO_TiecCuoi tiec1 = new DTO_TiecCuoi();
+            tiec1.MaCa = Convert.ToInt32(cboCa.SelectedValue.ToString());
+            tiec1.MaSanh = Convert.ToInt32(cboSanh.SelectedValue.ToString());
+            tiec1.NgayDaiTiec = dtpNgayDaiTiec.Value.ToString("MM/dd/yyyy");
+            DataTable re = BUS_NhanDatTiecCuoi.GetDate(tiec1);
+            if (re.Rows.Count > 0)
+            {
+                MessageBox.Show("Chọn lại thời gian tổ chức tiệc: Ca, ngày đãi tiệc, vì thời gian đã bị trùng", "Thông báo");
+                dtpNgayDaiTiec.Focus();
+                return;
+            }
+
             //Kiểm tra tiền đặt cọc 
             if (txtTienDatCoc.Text == string.Empty)
                 txtTienDatCoc.Text = TienDatCocToiThieu.ToString();
@@ -370,12 +393,14 @@ namespace QuanLyTiecCuoiUI
                 ShowNotification(true);
                 return;
             }
+
             if (DateTime.Compare(dtpNgayDaiTiec.Value, dtpNgayDatTiec.Value) < 0 || DateTime.Compare(dtpNgayDaiTiec.Value, dtpNgayDatTiec.Value) == 0)
             {
                 MessageBox.Show("Ngày đãi tiệc phải sau ngày đặt tiệc ít nhất 1 ngày", "Thông báo");
                 dtpNgayDaiTiec.Focus();
                 return;
             }
+
             //Add DTO
             dattieccuoi = new DTO_TiecCuoi();
             dattieccuoi.TenChuRe = txtTenChuRe.Text;
@@ -395,8 +420,8 @@ namespace QuanLyTiecCuoiUI
             tiec.MaCa = Convert.ToInt32(cboCa.SelectedValue.ToString());
             tiec.MaSanh = Convert.ToInt32(cboSanh.SelectedValue.ToString());
             tiec.NgayDaiTiec = dtpNgayDaiTiec.Value.ToString("MM/dd/yyyy");
-            DataTable re = BUS_NhanDatTiecCuoi.GetDate(tiec);
-            if (re.Rows.Count > 0)
+            DataTable ret = BUS_NhanDatTiecCuoi.GetDate(tiec);
+            if (ret.Rows.Count > 0)
             {
                 MessageBox.Show("Chọn lại thời gian tổ chức tiệc: Ca, ngày đãi tiệc, vì thời gian đã bị trùng", "Thông báo");
                 dtpNgayDaiTiec.Focus();
@@ -539,6 +564,17 @@ namespace QuanLyTiecCuoiUI
         {
             if (CheckStateToShow()) 
             {
+                //Kiểm tra nếu có tiệc cưới đã thanh toán chưa 
+                DTO_TiecCuoi check = new DTO_TiecCuoi();
+                check.TenChuRe = txtTenChuRe.Text;
+                check.TenCoDau = txtTenCoDau.Text;
+                check.DienThoai = txtDienThoai.Text;
+                if (!BUS_NhanDatTiecCuoi.CheckDaLapTiecCuoi(check))
+                {
+                    MessageBox.Show("Bạn chưa thanh toán một tiệc cưới đã đặt, đề nghị thanh toán trước khi đặt thêm ", "Thông báo");
+                    return;
+                }
+
                 //Check infor tiệc cưới đã tồn tại hay chưa
                 DTO_TiecCuoi tiec = new DTO_TiecCuoi();
                 tiec.MaCa = Convert.ToInt32(cboCa.SelectedValue.ToString());
@@ -587,7 +623,7 @@ namespace QuanLyTiecCuoiUI
                 }
                 else
                 {
-                    MessageBox.Show("Thông tin khách hàng - điện thoại liên lạc phải được nhập đầy đủ trước", "Thông báo");
+                    MessageBox.Show("Thông tin khách hàng - điện thoại liên lạc phải được nhập đầy đủ trước (hoặc ngày đãi tiệc không đúng)", "Thông báo");
                     txtTenChuRe.Focus();
                 }
             }
@@ -597,6 +633,17 @@ namespace QuanLyTiecCuoiUI
         {
             if (CheckStateToShow())
             {
+                //Kiểm tra nếu có tiệc cưới đã thanh toán chưa 
+                DTO_TiecCuoi check = new DTO_TiecCuoi();
+                check.TenChuRe = txtTenChuRe.Text;
+                check.TenCoDau = txtTenCoDau.Text;
+                check.DienThoai = txtDienThoai.Text;
+                if (!BUS_NhanDatTiecCuoi.CheckDaLapTiecCuoi(check))
+                {
+                    MessageBox.Show("Bạn chưa thanh toán một tiệc cưới đã đặt, đề nghị thanh toán trước khi đặt thêm ", "Thông báo");
+                    return;
+                }
+                //kiểm tra thời gian chọn đặt tiệc
                 DTO_TiecCuoi tiec = new DTO_TiecCuoi();
                 tiec.MaCa = Convert.ToInt32(cboCa.SelectedValue.ToString());
                 tiec.MaSanh = Convert.ToInt32(cboSanh.SelectedValue.ToString());
@@ -630,7 +677,7 @@ namespace QuanLyTiecCuoiUI
                 }
                 else
                 {
-                    MessageBox.Show("Thông tin khách hàng - điện thoại liên lạc phải được nhập đầy đủ trước", "Thông báo");
+                    MessageBox.Show("Thông tin khách hàng - điện thoại liên lạc phải được nhập đầy đủ trước (hoặc ngày đãi tiệc không đúng)", "Thông báo");
                     txtTenChuRe.Focus();
                 }
             }
@@ -861,13 +908,14 @@ namespace QuanLyTiecCuoiUI
                     btnPhieuDatDichVu.Enabled = false;
                     SetupStateControlTiecCuoi(true);
                     //btnDatTiec.Enabled = true;
-                    //txtTienDatCoc.ReadOnly = false;
+                    txtTienDatCoc.ReadOnly = false;
 
                     //hiển thị tiền đặt cọc tối thiểu
                     decimal money = sum * 5 / 100;
                     TienDatCocToiThieu += money;
                     txtTienDatCoc.Text = TienDatCocToiThieu.ToString();
                     //txtTienDatCoc.Focus();
+                    btnDatTiec.Enabled = true;
                     MessageBox.Show("Lập phiếu đặt dịch vụ thành công", "Thông báo");
                 }
             }
@@ -892,7 +940,8 @@ namespace QuanLyTiecCuoiUI
                     btnDatTiec.Enabled = true;
                     this.MaximumSize = this.MinimumSize = new Size(530, 570);
                     SetupStateControlTiecCuoi(false);
-                    txtTienDatCoc.ReadOnly = true;
+                    txtTienDatCoc.ReadOnly = false;
+                    dtpNgayDatTiec.Enabled = false;
 
                     //trạng thái của panel dịch vụ và món ăn 
                     IsClickedDichvu = false;
@@ -1147,7 +1196,7 @@ namespace QuanLyTiecCuoiUI
                     //lstDichVuTiecCuoi = new ListView();
                     //lstDichVuInsert.Clear();
                     this.Size = new Size(530, 570);
-                    //btnDatTiec.Enabled = true;
+                    btnDatTiec.Enabled = true;
                     this.MaximumSize = this.MinimumSize = new Size(530, 570);
                     SetupStateControlTiecCuoi(false);
                     txtTienDatCoc.ReadOnly = true;

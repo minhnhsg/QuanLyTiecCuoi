@@ -118,7 +118,7 @@ namespace QuanLyTiecCuoiUI
                 RolesSize[5] = 0;
                 RolesSize[7] = 0;
 
-                SpaceSice[1] = 47;
+                SpaceSice[1] = 50;
                 SpaceSice[3] = 42;
                 SpaceSice[5] = 60;
                 SpaceSice[7] = 60;

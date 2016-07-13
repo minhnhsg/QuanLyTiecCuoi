@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnThayDoiQuyDinhForm = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btnThayDoiQuyDinhForm
@@ -46,6 +48,7 @@
             this.btnThayDoiQuyDinhForm.TabIndex = 4;
             this.btnThayDoiQuyDinhForm.Text = "           Thay đổi quy định";
             this.btnThayDoiQuyDinhForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip1.SetToolTip(this.btnThayDoiQuyDinhForm, "Thay đổi quy định");
             this.btnThayDoiQuyDinhForm.UseVisualStyleBackColor = true;
             // 
             // menuQuyDinh
@@ -64,5 +67,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnThayDoiQuyDinhForm;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -50,5 +50,9 @@ namespace BUS
         {
             return DAO_NhanDatTiecCuoi.InsertChiTietDatDichVu(ctphieudatdichvu);
         }
+        public static bool CheckDaLapTiecCuoi(DTO_TiecCuoi tieccuoi)
+        {
+            return DAO_NhanDatTiecCuoi.CheckDaLapTiecCuoi(tieccuoi);
+        }
     }
 }

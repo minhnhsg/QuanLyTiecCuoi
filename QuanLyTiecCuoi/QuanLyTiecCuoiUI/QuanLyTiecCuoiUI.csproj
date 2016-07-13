@@ -126,12 +126,6 @@
     <Compile Include="FormFeature\QuanLy\frmQuanLySanh.designer.cs">
       <DependentUpon>frmQuanLySanh.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormFeature\frmManHinhChinh.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormFeature\frmManHinhChinh.Designer.cs">
-      <DependentUpon>frmManHinhChinh.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormFeature\QuyDinh\frmThayDoiQuyDinh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,10 +162,10 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmQuanLyNhanVien.cs">
+    <Compile Include="FormFeature\QuanLy\frmQuanLyNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmQuanLyNhanVien.Designer.cs">
+    <Compile Include="FormFeature\QuanLy\frmQuanLyNhanVien.Designer.cs">
       <DependentUpon>frmQuanLyNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="ucControlFeature\ItemBaoCao.cs">
@@ -230,9 +224,6 @@
     <EmbeddedResource Include="FormFeature\ConfigDatabase\frmConfigDatabase.resx">
       <DependentUpon>frmConfigDatabase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormFeature\frmManHinhChinh.resx">
-      <DependentUpon>frmManHinhChinh.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormFeature\frmLoginForm.resx">
       <DependentUpon>frmLoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,7 +278,7 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmQuanLyNhanVien.resx">
+    <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyNhanVien.resx">
       <DependentUpon>frmQuanLyNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -409,9 +400,7 @@
   <ItemGroup>
     <None Include="Resources\user-group-new.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FormFeature\NhanVien\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\btnNhanVien_Defaut.png" />
   </ItemGroup>
