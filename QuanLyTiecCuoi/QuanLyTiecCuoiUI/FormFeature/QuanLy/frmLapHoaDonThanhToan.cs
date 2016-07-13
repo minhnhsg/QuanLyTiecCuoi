@@ -88,11 +88,11 @@ namespace QuanLyTiecCuoiUI
         private void btnLapHoaDon_Click(object sender, EventArgs e)
         {
 
-            //if (currentDate.Month == dtpNgayDaiTiec.Value.Month && currentDate.Day < dtpNgayDaiTiec.Value.Day)
-            //{
-            //    MessageBox.Show("Tiệc cưới này chưa được tổ chức nên bạn không thể lập hóa đơn thanh toán. ", "Thông báo", MessageBoxButtons.OK);
-            //    return;
-            //}
+            if (currentDate.Month == dtpNgayDaiTiec.Value.Month && currentDate.Day < dtpNgayDaiTiec.Value.Day)
+            {
+                MessageBox.Show("Tiệc cưới này chưa được tổ chức nên bạn không thể lập hóa đơn thanh toán. ", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
 
             if (String.IsNullOrWhiteSpace(mTenChuRe.Trim()) && String.IsNullOrWhiteSpace(mTenCoDau.Trim()))
             {
@@ -147,8 +147,7 @@ namespace QuanLyTiecCuoiUI
                             }
 
 
-
-                            String[] strNgayDaiTiec = latestHoaDon.NgayThanhToan.Split('-');
+                            String[] strNgayDaiTiec = latestHoaDon.NgayThanhToan.Split('/');
                             DateTime ngayThanhToanGanNhat = new DateTime(int.Parse(strNgayDaiTiec[2]), int.Parse(strNgayDaiTiec[0]), int.Parse(strNgayDaiTiec[1]));
                             soNgayTre = Math.Max(currentDate.Subtract(ngayThanhToanGanNhat).Days, 0);
 
@@ -188,7 +187,7 @@ namespace QuanLyTiecCuoiUI
                         lblConLai.Text = ConvertStringToCurrency(soTienConLai);
 
 
-                        String[] strNgayDaiTiec = mNgayDaiTiec.Split('-');
+                        String[] strNgayDaiTiec = mNgayDaiTiec.Split('/');
                         DateTime ngayDaiTiecDatetime = new DateTime(int.Parse(strNgayDaiTiec[2]), int.Parse(strNgayDaiTiec[0]), int.Parse(strNgayDaiTiec[1]));
                         soNgayTre = Math.Max(currentDate.Subtract(ngayDaiTiecDatetime).Days, 0);
                         lblSoNgayTre.Text = soNgayTre.ToString();
@@ -214,6 +213,9 @@ namespace QuanLyTiecCuoiUI
                 else
                 {
                     lblPhanTramPhat.Text = "Không áp dụng";
+            
+                    tongTienTra = soTienConLai;
+                    lblTongTienThanhToan.Text = ConvertStringToCurrency(soTienConLai);
                 }
 
                 txtSoTienTra.Enabled = true;
